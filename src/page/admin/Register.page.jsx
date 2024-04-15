@@ -70,9 +70,19 @@ const RegisterPage = () => {
 					{({ isSubmitting, handleChange, handleBlur, values }) => (
 						<Form>
 							<div className=" border  sm:p-5 p-4 rounded-md border-gray-300">
-								<h1 className=" sm:text-2xl text-xl font-bold text-orange-400 ">
-									Register Your Account
-								</h1>
+								<div className="flex justify-between items-center ">
+									<h1 className=" sm:text-2xl text-xl font-bold text-orange-400 ">
+										Register Your Account
+									</h1>
+									<p className="font-medium text-gray-600 sm:text-sm  text-xs">
+										Already have an account?{" "}
+										<span
+											onClick={() => nav("/")}
+											className=" active:scale-75  select-none underline text-orange-400 ">
+											Sign in
+										</span>
+									</p>
+								</div>
 
 								<FormComponent
 									name={"name"}

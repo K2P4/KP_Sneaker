@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "../../../../node_modules/swiper/swiper-bundle.min.css";
 
@@ -12,7 +12,8 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import useFetch from "../../../hook/useFetch";
-import { MenSneakerService } from "../../../service/men.service";
+import Autoplay from "embla-carousel-autoplay";
+
 import { Link, useNavigate } from "react-router-dom";
 import HomeCarouselComponent from "../../../components/HomeCarousel.component";
 import AboutPage from "./module/About.page";
@@ -22,51 +23,78 @@ import {
 	LoadingComponent,
 } from "../../../components";
 import AuthGuard from "../../../components/guard/AuthGuard";
+import { PopularService } from "../../../service/popular.service";
+import { motion } from "framer-motion";
+
+import "../../../../node_modules/animate.css/animate.min.css";
 
 const DashboardPage = () => {
-	const { data, loading } = useFetch(MenSneakerService, "men");
+	const { data, loading } = useFetch(PopularService, "popular");
+	const [animation, setAnimation] = useState(false);
+
 	const nav = useNavigate();
 
+	const handleAnimation = () => {
+		setAnimation(true);
+	};
 
 	return (
 		<AuthGuard>
 			<div className="">
-				<div className="w-[85%]   h-screen  sm:my-10 mx-auto select-none ">
+				<div className="w-[85%] sm:w-full  h-screen  sm:my-10 mx-auto select-none ">
 					{loading ? (
 						<DashboardLoadingComponent />
 					) : (
-						<Carousel>
+						<Carousel
+							plugins={[
+								Autoplay({
+									delay: 4000,
+								}),
+							]}>
 							<CarouselContent>
 								{data?.map((item) => (
-									<CarouselItem>
-										<div className="flex w-full my-5 sm:my-0 duration-700 flex-col items-center sm:flex-row h-[200px] sm:h-[320px] sm:items-start    align-middle ">
-											<img
-												className="w-[90%] h-[130px] sm:w-[45%] sm:h-[320px] object-cover   rounded-sm  "
-												src={item?.images.image1}
-												alt=""
-											/>
-
-											<div className=" w-[90%] bg-gray-100 sm:h-[320px]  px-4  sm:w-[60%]">
-												<div className="mt-2 ">
-													<h3 className="text-orange-500 text-center sm:text-left sm:text-3xl  line-clamp-1 sm:line-clamp-none  text-xl  font-bold  ">
+									<CarouselItem className="">
+										<motion.div
+											whileInView={{ opacity: 1 }}
+											initial={false}
+											whileHover={{
+												opacity: 1,
+												scale: 1.01,
+												boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.7)",
+											}}>
+											<div className=" group  h-[480px] m-auto  relative  shadow-lg shadow-orange-400   px-5    rounded-md w-full flex  align-middle items-center justify-between ">
+												<div className="w-[60%] z-20  animate__slideInLeft duration-1000 transition-shadow animate__animated">
+													<h1 className=" font-bold text-orange-400 text-3xl ">
 														{item.name}
-													</h3>
-
-													<p className=" mt-5 text-lg hidden sm:inline-flex   text-gray-600  text-justify  tracking-wide leading-7 font-medium ">
+													</h1>
+													<p className="text-md my-6 tracking-wide h-[170px] text-gray-700  text-justify">
 														{item.description}
 													</p>
 
-													<button className=" my-7 hidden sm:inline-flex bg-orange-500 font-medium text-white rounded-md px-6 text-center py-2 ">
-														<Link to={"/collections"}>SHOP NOW</Link>
+													<button className="bg-orange-500 hover:bg-orange-600 active:scale-90 duration-300  text-white text-lg  font-semibold px-7 py-2 rounded-lg">
+														SHOP NOW
 													</button>
 												</div>
+
+												<img
+													className={`  w-full ${
+														animation &&
+														"animate__animated animate__slideInRight"
+													} animate__slideInRight animate__animated  absolute  transition-transform duration-1000   left-80 top-0   text-center mx-auto h-full   object-contain `}
+													src={item.image}
+													alt=""
+												/>
 											</div>
-										</div>
+										</motion.div>
 									</CarouselItem>
 								))}
 							</CarouselContent>
-							<CarouselPrevious className="hover:bg-orange-400" />
-							<CarouselNext className="hover:bg-orange-400" />
+							<CarouselPrevious className="hover:bg-orange-400 hover:text-white duration-500" />
+							<CarouselNext
+							
+								
+								className="hover:bg-orange-400 hover:text-white duration-500"
+							/>
 						</Carousel>
 					)}
 					<HomeCarouselComponent />

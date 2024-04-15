@@ -18,5 +18,7 @@ export const Apiservice = createApi({
 		},
 	}),
 
+	tagTypes: ["auth"],
+
 	endpoints: (builder) => ({}),
 });

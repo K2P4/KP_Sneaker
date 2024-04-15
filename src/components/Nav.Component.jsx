@@ -9,11 +9,11 @@ import {
 	Outlet,
 } from "react-router-dom";
 import { SneakerContext } from "../service/store/SneakerContextProvider";
+import { useLogoutMutation } from "../service/endpoints/AuthEndpoints";
 
 const NavComponent = () => {
-	// const {
-	// 	state : { AuthenticateData },
-	// } = useLocation();
+	const [RemoveFun, RemoveData] = useLogoutMutation();
+
 	const [toggle, settoggle] = useState(false);
 	const { aboutToggle, setaboutToggle, setContactToggle, contactToggle } =
 		useContext(SneakerContext);
@@ -79,9 +79,9 @@ const NavComponent = () => {
 		nav(`/dashboard/search/${search}`);
 	};
 
-	const handleLogout = () => {
-		const remove = localStorage.removeItem("token");
-
+	const handleLogout = async () => {
+		await RemoveFun();
+		localStorage.removeItem("token");
 		nav("/");
 	};
 
@@ -98,20 +98,20 @@ const NavComponent = () => {
 	return (
 		<div>
 			<div className=" w-[95%]   sm:w-[85%]    mx-auto  ">
-				<div className=" border-b border-b-gray-300  py-4 sm:py-9  flex justify-between items-center   ">
+				<div className=" border-b border-b-gray-300  py-4 sm:pt-4 sm:pb-0  flex justify-between items-center   ">
 					<ul className=" sm:flex   hidden   items-center gap-6 align-middle">
 						<li
 							id="logo"
 							className="text-xl   select-none tracking-wide  font-bold  text-orange-500">
 							<Link to="/dashboard">
-								<div className="flex items-center gap-1">
-									NIKEE
+								
+									
 									<img
-										className="w-10"
-										src="https://cdn-icons-png.flaticon.com/128/1785/1785348.png"
+										className="   w-16 h-16"
+										src="../../img/logo.png"
 										alt=""
 									/>
-								</div>
+								
 							</Link>
 						</li>
 
@@ -140,7 +140,7 @@ const NavComponent = () => {
 							<a
 								className=" duration-1000 "
 								onClick={handleContact}
-								href="#contact">
+								>
 								Contact
 							</a>
 						</li>
@@ -285,7 +285,7 @@ const NavComponent = () => {
 					)}
 
 					<div className=" flex   sm:gap-4 select-none items-center ">
-						<form
+						{/* <form
 							onSubmit={handleSubmit}
 							action="
 						">
@@ -314,7 +314,7 @@ const NavComponent = () => {
 									name="email"
 								/>
 							</div>
-						</form>
+						</form> */}
 						<div className="flex items-center gap-3">
 							<div className="relative flex items-center gap-3 sm:gap-0 duration-500 active:scale-90 ">
 								<svg
@@ -399,15 +399,16 @@ const NavComponent = () => {
 									</a>
 								</li>
 							</ul>
-							<div className="py-2  hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center justify-between">
-								<a
-									href="#"
-									className="block px-4 py-2 text-sm text-gray-700  dark:text-gray-200 dark:hover:text-white">
+
+
+							<div
+								onClick={handleLogout}
+								className="py-2  hover:bg-gray-200 dark:hover:bg-gray-600 flex items-center justify-between">
+								<a className="block px-4 py-2 text-sm text-gray-700  dark:text-gray-200 dark:hover:text-white">
 									Sign out
 								</a>
 
 								<svg
-									onClick={handleLogout}
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
 									viewBox="0 0 24 24"
@@ -435,28 +436,3 @@ const NavComponent = () => {
 
 export default NavComponent;
 
-// {
-// 	/* <div className="py-2 flex items-center justify-between">
-// 						<a
-// 							href="#"
-// 							className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
-// 							Sign out
-// 						</a>
-
-// 						<svg
-// 							onClick={handleLogout}
-// 							xmlns="http://www.w3.org/2000/svg"
-// 							fill="none"
-// 							viewBox="0 0 24 24"
-// 							strokeWidth={1.5}
-// 							stroke="currentColor"
-// 							className="w-5 h-5 me-2">
-// 							<path
-// 								strokeLinecap="round"
-// 								strokeLinejoin="round"
-// 								d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15"
-// 							/>
-// 						</svg>
-
-// 					</div> */
-// }
