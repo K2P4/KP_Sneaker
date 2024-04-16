@@ -11,6 +11,7 @@ export { default as CollectionLoadingComponent } from "./CollectionLoading.compo
 export { default as DashboardLoadingComponent } from "./DashboardLoading.component";
 export { default as HomeLoadingComponent } from "./HomeLoading.component";
 export { default as ButtonComponent } from "./Button.component";
+export { default as CutomerComponent } from "./Customer.component";
 
 // export { default as DetailButtonComponent } from ".//DetailButton.component";
 

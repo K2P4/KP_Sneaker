@@ -27,21 +27,21 @@ import { PopularService } from "../../../service/popular.service";
 import { motion } from "framer-motion";
 
 import "../../../../node_modules/animate.css/animate.min.css";
+import { SneakerContext } from "../../../service/store/SneakerContextProvider";
+import CustomerComponent from "../../../components/Customer.component";
 
 const DashboardPage = () => {
 	const { data, loading } = useFetch(PopularService, "popular");
-	const [animation, setAnimation] = useState(false);
+	const { toggleAnimation, setoogleAnimation } = useContext(SneakerContext);
+
+	console.log(toggleAnimation);
 
 	const nav = useNavigate();
-
-	const handleAnimation = () => {
-		setAnimation(true);
-	};
 
 	return (
 		<AuthGuard>
 			<div className="">
-				<div className="w-[85%] sm:w-full  h-screen  sm:my-10 mx-auto select-none ">
+				<div className="w-[85%] sm:w-full  h-auto  sm:my-10 mx-auto select-none ">
 					{loading ? (
 						<DashboardLoadingComponent />
 					) : (
@@ -78,8 +78,7 @@ const DashboardPage = () => {
 
 												<img
 													className={`  w-full ${
-														animation &&
-														"animate__animated animate__slideInRight"
+														toggleAnimation && "  animate-bounce  "
 													} animate__slideInRight animate__animated  absolute  transition-transform duration-1000   left-80 top-0   text-center mx-auto h-full   object-contain `}
 													src={item.image}
 													alt=""
@@ -90,22 +89,19 @@ const DashboardPage = () => {
 								))}
 							</CarouselContent>
 							<CarouselPrevious className="hover:bg-orange-400 hover:text-white duration-500" />
-							<CarouselNext
-							
-								
-								className="hover:bg-orange-400 hover:text-white duration-500"
-							/>
+							<CarouselNext className="hover:bg-orange-400 hover:text-white duration-500" />
 						</Carousel>
 					)}
 					<HomeCarouselComponent />
 
-					<AboutPage />
+					<CustomerComponent />
+				</div>
 
-					<div
-						id="contact"
-						className="    w-full    sm:bg-stone-100 px-3 py-5 rounded-lg  ">
-						<ContactPage />
-					</div>
+				
+				<div
+					id="contact"
+					className="    w-full    sm:bg-stone-50 px-3 py-5 rounded-lg  ">
+					<ContactPage />
 				</div>
 			</div>
 		</AuthGuard>

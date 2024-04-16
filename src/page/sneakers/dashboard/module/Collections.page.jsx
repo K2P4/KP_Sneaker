@@ -12,7 +12,7 @@ import {
 const CollectionsPage = () => {
 	const { data, loading, error, hiddenIcon } = useContext(SneakerContext);
 
-	const collection = Array.from({ length: 12 }, (_, index) => index);
+	const collection = Array.from({ length: 18 }, (_, index) => index);
 	
 
 
@@ -20,7 +20,7 @@ const CollectionsPage = () => {
 		<div className=" ">
 			{loading ? (
 				<div className="flex mx-auto  flex-wrap justify-center items-center align-middle gap-8  my-3">
-					{collection.map((item) => (
+					{collection?.map((item) => (
 						<CollectionLoadingComponent key={item} />
 					))}
 				</div>

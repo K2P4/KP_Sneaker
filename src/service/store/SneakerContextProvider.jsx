@@ -10,6 +10,8 @@ const SneakerContextProvider = ({ children }) => {
 	const { data, loading, error } = useFetch(sneakerDataService, "sneakers");
 
 	const [cart, setCart] = useState([]);
+	const [toggleAnimation, setoogleAnimation] = useState(false);
+
 	const [toggle, setToggle] = useState(false);
 	const [filterCart, setFilterCart] = useState([]);
 	const [aboutToggle, setaboutToggle] = useState(false);
@@ -106,6 +108,8 @@ const SneakerContextProvider = ({ children }) => {
 					toggleAddRemove,
 					setaboutToggle,
 					aboutToggle,
+					setoogleAnimation,
+					toggleAnimation,
 				}}>
 				{children}
 			</SneakerContext.Provider>
