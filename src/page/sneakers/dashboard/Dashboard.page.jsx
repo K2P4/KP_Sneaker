@@ -21,6 +21,7 @@ import ContactPage from "./module/Contact.page";
 import {
 	DashboardLoadingComponent,
 	LoadingComponent,
+	SliderImage,
 } from "../../../components";
 import AuthGuard from "../../../components/guard/AuthGuard";
 import { PopularService } from "../../../service/popular.service";
@@ -62,7 +63,7 @@ const DashboardPage = () => {
 												scale: 1.01,
 												boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.7)",
 											}}>
-											<div className=" group  h-[480px] m-auto  relative  shadow-lg shadow-orange-400   px-5    rounded-md w-full flex  align-middle items-center justify-between ">
+											<div className=" group   bg-slate-50  h-[480px] m-auto  relative  shadow-lg shadow-orange-400   px-5    rounded-md w-full flex  align-middle items-center justify-between ">
 												<div className="w-[60%] z-20  animate__slideInLeft duration-1000 transition-shadow animate__animated">
 													<h1 className=" font-bold text-orange-400 text-3xl ">
 														{item.name}
@@ -94,10 +95,11 @@ const DashboardPage = () => {
 					)}
 					<HomeCarouselComponent />
 
+					<SliderImage />
+
 					<CustomerComponent />
 				</div>
 
-				
 				<div
 					id="contact"
 					className="    w-full    sm:bg-stone-50 px-3 py-5 rounded-lg  ">

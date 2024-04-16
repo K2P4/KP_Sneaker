@@ -10,11 +10,10 @@ import {
 } from "../../../../components";
 
 const CollectionsPage = () => {
-	const { data, loading, error, hiddenIcon } = useContext(SneakerContext);
+	const { data, loading } = useContext(SneakerContext);
 
 	const collection = Array.from({ length: 18 }, (_, index) => index);
-	
-
+	console.log(data);
 
 	return (
 		<div className=" ">
@@ -25,12 +24,13 @@ const CollectionsPage = () => {
 					))}
 				</div>
 			) : (
-				<div className="flex my-3 flex-wrap gap-8 text-center justify-center ">
+				<div className="flex my-3 flex-wrap gap-10 text-center justify-start ">
+				
 					{data?.map((item) => (
 						<ProductsComponent item={item} key={item.id} />
 					))}
 				</div>
-		)}
+			)}
 		</div>
 	);
 };

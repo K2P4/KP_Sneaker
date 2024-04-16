@@ -12,6 +12,7 @@ const EmptyComponent = () => {
 		setToggle(false);
 		nav("/dashboard/collections");
 	};
+	
 	return (
 		<div>
 			<div className=" mt-20 ">
@@ -21,7 +22,7 @@ const EmptyComponent = () => {
 						src="https://ouch-cdn2.icons8.com/3bX0fX3Ny1iN8gWkpKJvKOs7ag94ZyjmBXa-vbPZgSw/rs:fit:368:348/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvODIy/LzA0ZTgyOGFjLWQ1/MjEtNDZkMC05ZjVj/LWIzYTM2MzllZmVm/Zi5wbmc.png"
 						alt=""
 					/>
-					<h5 className=" mt-40 sm:text-lg font-medium text-gray-700  ">
+					<h5 className=" mt-40 sm:text-md font-medium text-gray-700  ">
 						There Has No Item .{" "}
 						<span
 							onClick={handleBack}
@@ -33,7 +34,7 @@ const EmptyComponent = () => {
 
 				<button
 					onClick={handleBack}
-					className="border duration-500 fixed top-4 sm:end-9  end-4   active:scale-95 rounded-sm hover:bg-slate-100 ">
+					className=" duration-500 fixed top-4 sm:end-5  end-4   active:scale-95 rounded-sm hover:bg-slate-100 ">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"

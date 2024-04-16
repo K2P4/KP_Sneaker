@@ -1,19 +1,36 @@
 /** @format */
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { SneakerContext } from "../../../../service/store/SneakerContextProvider";
 import { useNavigate, useParams } from "react-router-dom";
 import { CartListItemComponent, EmptyComponent } from "../../../../components";
 
 const AddtoCartPage = () => {
-	const { cart, setToggle } = useContext(SneakerContext);
+	const { cart, setToggle, toggle } = useContext(SneakerContext);
 	const [order, setOrder] = useState(false);
+	const MenuRef = useRef();
+
 	const nav = useNavigate();
 
 	const handleBack = () => {
 		setToggle(false);
 		nav("/dashboard/collections");
 	};
+
+	// useEffect(() => {
+	// 	const handleMouse = (e) => {
+	// 		if (!MenuRef.current.contains(e.target)) {
+	// 			setToggle(!toggle);
+	// 			console.log("toggle")
+	// 		}
+
+	// 		window.addEventListener("mousedown", handleMouse);
+
+	// 		return () => {
+	// 			window.addEventListener("mousedown", handleMouse);
+	// 		};
+	// 	};
+	// }, []);
 
 	const toggleOrder = () => {
 		setOrder(!order);
@@ -26,7 +43,9 @@ const AddtoCartPage = () => {
 
 	return (
 		<div>
-			<div className="fixed overflow-scroll  animate__animated animate__bounceInRight  z-10 top-0 end-0 bg-gray-50  border  w-[70%]  sm:w-[25%] h-screen mx-auto ">
+			<div
+				onMouseDown={() => setToggle(false)}
+				className="fixed overflow-scroll  animate__animated animate__bounceInRight  z-10 top-0 end-0 bg-gray-50  border  w-[70%]  sm:w-[25%] h-screen mx-auto ">
 				<div className="px-3 mt-5">
 					{cart.length == 0 && <EmptyComponent />}
 

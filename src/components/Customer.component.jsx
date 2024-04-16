@@ -73,6 +73,8 @@ const CustomerComponent = () => {
 						entire process seamless and enjoyable. I highly recommend their
 						services to anyone looking for a professional and stunning website.
 					</p>
+
+					
 				</motion.div>
 				<motion.div
 					whileInView={{ opacity: 1 }}
