@@ -15,13 +15,13 @@ const MenPage = () => {
 	return (
 		<div className=" ">
 			{loading ? (
-				<div className="flex mx-auto w-[70%]  flex-wrap justify-center items-center align-middle gap-8  my-3">
+				<div className="flex mx-auto w-[90%]  flex-wrap justify-center items-center align-middle gap-8  my-3">
 					{menProduct.map((item) => (
 						<CollectionLoadingComponent key={item} />
 					))}
 				</div>
 			) : (
-				<div className="flex flex-wrap w-[70%] mx-auto gap-10 text-center justify-center my-3">
+				<div className="flex flex-wrap w-full mx-auto gap-10 text-center justify-center my-3">
 					{data.map((item) => (
 						<ProductsComponent item={item} key={item.id} />
 					))}

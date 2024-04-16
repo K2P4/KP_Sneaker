@@ -22,6 +22,7 @@ import {
 	DashboardLoadingComponent,
 	LoadingComponent,
 	SliderImage,
+	SliderImage2,
 } from "../../../components";
 import AuthGuard from "../../../components/guard/AuthGuard";
 import { PopularService } from "../../../service/popular.service";
@@ -30,6 +31,7 @@ import { motion } from "framer-motion";
 import "../../../../node_modules/animate.css/animate.min.css";
 import { SneakerContext } from "../../../service/store/SneakerContextProvider";
 import CustomerComponent from "../../../components/Customer.component";
+import ServiceComponent from "../../../components/Service.component";
 
 const DashboardPage = () => {
 	const { data, loading } = useFetch(PopularService, "popular");
@@ -98,6 +100,9 @@ const DashboardPage = () => {
 					<SliderImage />
 
 					<CustomerComponent />
+
+					<SliderImage2/>
+					<ServiceComponent />
 				</div>
 
 				<div

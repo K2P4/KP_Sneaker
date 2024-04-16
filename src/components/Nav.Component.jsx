@@ -306,7 +306,7 @@ const NavComponent = () => {
 							</div>
 						</form> */}
 						<div className="flex items-center gap-3">
-							<div className="relative flex items-center gap-3 sm:gap-0 duration-500 active:scale-90 ">
+							<div className="relative flex items-center gap-3 sm:gap-0 duration-500 ">
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 24 24"
@@ -322,7 +322,7 @@ const NavComponent = () => {
 									onClick={click}
 									strokeWidth={1.5}
 									stroke="currentColor"
-									className=" w-7 h-7">
+									className=" w-7 active:scale-90 h-7">
 									<path
 										strokeLinecap="round"
 										strokeLinejoin="round"
