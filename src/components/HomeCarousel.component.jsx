@@ -37,8 +37,8 @@ const HomeCarouselComponent = () => {
 				) : (
 					
 						<div className=" w-full h-auto my-4 sm:my-16  ">
-							<div className="text-orange-500     font-bold text-center">
-								<h1 className="sm:text-4xl text-2xl    bodyFont  tracking-wide">
+							<div className=" text-gray-800   font-bold text-center">
+								<h1 className="sm:text-4xl text-2xl  text-orange-500    bodyFont  tracking-wide">
 									New Release{" "}
 								</h1>
 
@@ -69,7 +69,7 @@ const HomeCarouselComponent = () => {
 												xmlns="http://www.w3.org/2000/svg"
 												viewBox="0 0 24 24"
 												fill="currentColor"
-												className="w-10 hidden group-hover:flex duration-700 animate__zoomIn hover:border-0  hover:bg-orange-400 hover:text-white animate__animated absolute left-5 border border-gray-700 rounded-sm p-2   h-10">
+												className="w-12 hidden group-hover:flex duration-700 animate__zoomIn hover:border-0   animate__animated absolute left-5 text-orange-500 rounded-sm p-2    h-12">
 												<path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
 											</svg>
 

@@ -18,7 +18,7 @@ const SliderImage2Component = () => {
 	};
 	return (
 		<div className="flex justify-between flex-col">
-			<h1 className=" text-orange-400 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
+			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
 				Shop By Category
 			</h1>
 			<div className="w-full flex items-center  my-16 h-full">

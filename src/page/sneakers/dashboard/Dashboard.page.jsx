@@ -19,6 +19,7 @@ import HomeCarouselComponent from "../../../components/HomeCarousel.component";
 import AboutPage from "./module/About.page";
 import ContactPage from "./module/Contact.page";
 import {
+	BestSeller,
 	DashboardLoadingComponent,
 	LoadingComponent,
 	SliderImage,
@@ -40,6 +41,10 @@ const DashboardPage = () => {
 	console.log(toggleAnimation);
 
 	const nav = useNavigate();
+
+	const hanldeShop = () => {
+		nav('/dashboard/collections')
+	}
 
 	return (
 		<AuthGuard>
@@ -74,15 +79,18 @@ const DashboardPage = () => {
 														{item.description}
 													</p>
 
-													<button className="bg-orange-500 hover:bg-orange-600 active:scale-90 duration-300  text-white text-lg  font-semibold px-7 py-2 rounded-lg">
+													<button
+														onClick={hanldeShop}
+														className="bg-orange-500 hover:bg-orange-600 active:scale-90 duration-300  text-white text-lg  font-semibold px-7 py-2 rounded-lg">
 														SHOP NOW
 													</button>
 												</div>
 
+												<div className="   w-[400px] h-[400px]  bg-orange-500  border boder-2    border-orange-500 absolute top-5  z-20 left-[60%] rounded-full"></div>
 												<img
-													className={`  w-full ${
+													className={`    w-full ${
 														toggleAnimation && "  animate-bounce  "
-													} animate__slideInRight animate__animated  absolute  transition-transform duration-1000   left-80 top-0   text-center mx-auto h-full   object-contain `}
+													} animate__slideInRight animate__animated   absolute z-20  transition-transform duration-1000 rounded-full     left-80 top-0   text-center mx-auto  h-full  object-contain `}
 													src={item.image}
 													alt=""
 												/>
@@ -98,10 +106,10 @@ const DashboardPage = () => {
 					<HomeCarouselComponent />
 
 					<SliderImage />
-
+					<BestSeller/>
 					<CustomerComponent />
 
-					<SliderImage2/>
+					<SliderImage2 />
 					<ServiceComponent />
 				</div>
 

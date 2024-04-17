@@ -31,7 +31,7 @@ const CustomerComponent = () => {
 	}, []);
 	return (
 		<div className="  flex flex-col sm:mt-0  mt-24  gap-5 justify-center sm:gap-16  ">
-			<h1 className=" text-orange-400 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
+			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
 				Customer Review
 			</h1>
 

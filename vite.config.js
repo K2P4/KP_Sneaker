@@ -6,7 +6,7 @@ import jsonServer from "vite-plugin-simple-json-server";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [react(), jsonServer({ delay: 5000 })],
+	plugins: [react(), jsonServer({ delay: 2000 })],
 	resolve: {
 		alias: {
 			"@": path.resolve(__dirname, "./src"),
