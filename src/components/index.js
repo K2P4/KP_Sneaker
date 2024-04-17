@@ -16,6 +16,7 @@ export { default as SliderImage } from "./SliderImage.component";
 export { default as ServiceComponent } from "./Service.component";
 export { default as SliderImage2 } from "./SliderImage2.component";
 export { default as BestSeller } from "./BestSeller.component";
+export { default as SliderImage3 } from "./SliderImage3.component";
 
 // export { default as DetailButtonComponent } from ".//DetailButton.component";
 

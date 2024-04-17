@@ -24,6 +24,7 @@ import {
 	LoadingComponent,
 	SliderImage,
 	SliderImage2,
+	SliderImage3,
 } from "../../../components";
 import AuthGuard from "../../../components/guard/AuthGuard";
 import { PopularService } from "../../../service/popular.service";
@@ -111,6 +112,7 @@ const DashboardPage = () => {
 
 					<SliderImage2 />
 					<ServiceComponent />
+					<SliderImage3/>
 				</div>
 
 				<div

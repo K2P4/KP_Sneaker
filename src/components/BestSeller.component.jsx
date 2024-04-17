@@ -50,7 +50,7 @@ const BestSellerComponent = () => {
 	console.log(data);
 
 	return (
-		<div className="w-full h-[500px]">
+		<div className="w-full h-screen">
 			<div className="">
 				<h1 className="sm:text-4xl text-2xl    mx-auto text-center text-orange-500  bodyFont  tracking-wide">
 					Best Seller
@@ -66,9 +66,9 @@ const BestSellerComponent = () => {
 				) : (
 					<Slider className="   " {...settings}>
 						{data?.map((item) => (
-							<div className="w-[50%]  h-[300px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-md shadow-slate-400 ">
+							<div className="w-[50%]   hover:shadow-slate-500 hover:opacity-95   h-[300px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-xl shadow-slate-400 ">
 								<img
-									className="mx-auto w-full h-[50%] rounded-lg bg-slate-200  object-contain text-center"
+									className="mx-auto w-full h-[50%] rounded-sm bg-slate-200  object-contain text-center"
 									src={item.image}
 									alt=""
 								/>
@@ -103,7 +103,7 @@ const BestSellerComponent = () => {
 										</p>
 									</div>
 
-									<button className="bg-orange-500 rounded-lg  ">
+									<button className="bg-orange-500 rounded-lg  active:scale-90 ">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
 											fill="none"

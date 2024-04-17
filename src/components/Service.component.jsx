@@ -2,12 +2,12 @@ import React from 'react'
 
 const ServiceComponent = () => {
   return (
-		<div className="w-full h-screen  justify-between  flex flex-col gap-10 ">
+		<div className="w-full h-[600px]  justify-between  flex flex-col gap-10 ">
 			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
 				Our Services
 			</h1>
 			<div className=" w-full  h-full m-auto flex gap-10 justify-center">
-				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[30%]">
+				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[40%]">
 					<div className="w-[70%] mt-1">
 						<h1 className="text-xl font-bold">Fast Free Shipping</h1>
 						<p className="text-sm  my-2 text-gray-800 group-hover:text-black   ">
@@ -24,7 +24,7 @@ const ServiceComponent = () => {
 					</div>
 				</div>
 
-				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[30%]">
+				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[40%]">
 					<div className="w-[70%]">
 						<h1 className="text-xl font-bold">Sneaker Gift Card</h1>
 						<p className="text-sm  my-2 text-gray-800 group-hover:text-black  ">
@@ -40,7 +40,7 @@ const ServiceComponent = () => {
 					</div>
 				</div>
 
-				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[30%]">
+				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[40%]">
 					<div className="w-[70%]">
 						<h1 className="text-xl font-bold">Worry Free Returns</h1>
 						<p className="text-sm  my-2 text-gray-800 group-hover:text-black  ">
