@@ -10,6 +10,8 @@ const ProductsComponent = ({ item }) => {
 	const handleDetail = () => {
 		nav(`/dashboard/detail/${item.id}`, { state: { item } });
 	};
+
+	
 	return (
 		<div className=" ">
 			<div onClick={handleDetail} key={item.id} className="    ">

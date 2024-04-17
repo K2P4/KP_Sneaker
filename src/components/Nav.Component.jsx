@@ -21,8 +21,18 @@ import { useLogoutMutation } from "../service/endpoints/AuthEndpoints";
 
 const NavComponent = () => {
 	const [RemoveFun, RemoveData] = useLogoutMutation();
+	const {
+		data,
+		cart,
+		hiddenIcon,
+		filterCart,
+		setFilterCart,
+		setToggle,
+		SetHiddenIcon,
+	} = useContext(SneakerContext);
 
 	const [toggle, settoggle] = useState(false);
+	const [isFixed, setIsFixed] = useState(false);
 	const { aboutToggle, setaboutToggle, setContactToggle, contactToggle } =
 		useContext(SneakerContext);
 
@@ -35,15 +45,6 @@ const NavComponent = () => {
 	};
 
 	const nav = useNavigate();
-	const {
-		data,
-		cart,
-		hiddenIcon,
-		filterCart,
-		setFilterCart,
-		setToggle,
-		SetHiddenIcon,
-	} = useContext(SneakerContext);
 
 	const toggleMenu = () => {
 		settoggle(!toggle);
@@ -103,6 +104,31 @@ const NavComponent = () => {
 		settoggle(!toggle);
 	};
 
+	
+	useEffect(() => {
+		const handleScroll = () => {
+			if (window.scrollY > 500) {
+				setIsFixed(true);
+			} else {
+				setIsFixed(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
+	const scrollToSection = (id) => {
+		const element = document.getElementById(id);
+		if (element) {
+			settoggle(false);
+			element.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	return (
 		<div>
 			<div className=" w-[95%]   sm:w-[85%]    mx-auto  ">
@@ -117,7 +143,11 @@ const NavComponent = () => {
 						</SheetHeader>
 					</SheetContent>
 
-					<div className=" border-b border-b-gray-300  py-4 sm:pt-4 sm:pb-0  flex justify-between items-center   ">
+					<div
+						className={` border-b  border-b-gray-300  py-4 sm:pt-4 sm:pb-0  flex justify-between items-center   ${
+							isFixed &&
+							"fixed top-0 left-0   w-full    pe-9   ps-9  sm:pe-28 sm:px-28  mx-auto bg-slate-50  duration-500      z-30 "
+						} `}>
 						<ul className=" sm:flex   hidden   items-center gap-6 align-middle">
 							<li
 								id="logo"
@@ -146,8 +176,7 @@ const NavComponent = () => {
 							<li className="text-gray-500 tracking-wide select-none hover:text-orange-500 hover:font-medium active:border-b-2 transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
 								<a
 									className=" duration-1000 "
-									onClick={handleAbout}
-									href="#about">
+									onClick={() => scrollToSection("about")}>
 									About
 								</a>
 							</li>

@@ -16,6 +16,14 @@ import { SneakerContext } from "../../../../service/store/SneakerContextProvider
 const ContactPage = () => {
 	const { contactToggle } = useContext(SneakerContext);
 
+
+	const scrollToSection = (id) => {
+		const element = document.getElementById(id);
+		if (element) {
+			element.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	return (
 		<div
 			id="contact"
@@ -146,7 +154,7 @@ const ContactPage = () => {
 			</div>
 
 			<div className="  fixed bottom-2  left-[50%]  text-center ">
-				<a href="#logo">
+				<a onClick={() => scrollToSection("home")}>
 					<FaArrowAltCircleUp className="text-2xl text-orange-600 text-center mx-auto" />
 				</a>
 			</div>

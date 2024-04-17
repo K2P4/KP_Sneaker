@@ -1,10 +1,12 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SliderImage2Component = () => {
 	const nav = useNavigate();
+		const [showAnimation, setShowAnimation] = useState(false);
+
 	const handleWomen = () => {
 		nav("/dashboard/women");
 	};
@@ -16,8 +18,34 @@ const SliderImage2Component = () => {
 	const handleUnisex = () => {
 		nav("/dashboard/collections");
 	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const serviceComponent = document.getElementById("slide2");
+			if (serviceComponent) {
+				const serviceComponentOffset = serviceComponent.offsetTop;
+				const scrollPosition = window.scrollY + window.innerHeight;
+
+				if (scrollPosition >= serviceComponentOffset) {
+					setShowAnimation(true);
+				} else {
+					setShowAnimation(false);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 	return (
-		<div className="flex justify-between flex-col">
+		<div
+			id="slide2"
+			className={`flex justify-between  ${
+				showAnimation &&
+				"animate__animated  animate__slideInRight  duration-1000"
+			} flex-col`}>
 			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
 				Shop By Category
 			</h1>

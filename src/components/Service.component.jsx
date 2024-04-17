@@ -1,13 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const ServiceComponent = () => {
+		const [showAnimation, setShowAnimation] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const serviceComponent = document.getElementById("service");
+			if (serviceComponent) {
+				const serviceComponentOffset = serviceComponent.offsetTop;
+				const scrollPosition = window.scrollY + window.innerHeight;
+
+				if (scrollPosition >= serviceComponentOffset) {
+					setShowAnimation(true);
+				} else {
+					setShowAnimation(false);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
   return (
-		<div className="w-full h-[600px]  justify-between  flex flex-col gap-10 ">
+		<div
+			id="service"
+			className={`w-full h-[500px]  justify-between  flex flex-col gap-10 ${
+				showAnimation &&
+				"animate__animated  animate__slideInLeft  duration-1000"
+			} `}>
 			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
 				Our Services
 			</h1>
 			<div className=" w-full  h-full m-auto flex gap-10 justify-center">
-				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[40%]">
+				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[60%]">
 					<div className="w-[70%] mt-1">
 						<h1 className="text-xl font-bold">Fast Free Shipping</h1>
 						<p className="text-sm  my-2 text-gray-800 group-hover:text-black   ">
@@ -24,7 +51,7 @@ const ServiceComponent = () => {
 					</div>
 				</div>
 
-				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[40%]">
+				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[60%]">
 					<div className="w-[70%]">
 						<h1 className="text-xl font-bold">Sneaker Gift Card</h1>
 						<p className="text-sm  my-2 text-gray-800 group-hover:text-black  ">
@@ -40,7 +67,7 @@ const ServiceComponent = () => {
 					</div>
 				</div>
 
-				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[40%]">
+				<div className="w-[35%] group px-4 hover:bg-[#FF8911] hover:shadow-xl hover:opacity-95 hover:shadow-orange-600 duration-700 transition-transform  bg-[#FF9800] rounded-lg flex items-center gap-5  h-[60%]">
 					<div className="w-[70%]">
 						<h1 className="text-xl font-bold">Worry Free Returns</h1>
 						<p className="text-sm  my-2 text-gray-800 group-hover:text-black  ">

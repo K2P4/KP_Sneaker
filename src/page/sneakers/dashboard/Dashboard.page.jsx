@@ -37,6 +37,8 @@ import ServiceComponent from "../../../components/Service.component";
 
 const DashboardPage = () => {
 	const { data, loading } = useFetch(PopularService, "popular");
+	const [showAnimation, setShowAnimation] = useState(false);
+
 	const { toggleAnimation, setoogleAnimation } = useContext(SneakerContext);
 
 	console.log(toggleAnimation);
@@ -44,13 +46,38 @@ const DashboardPage = () => {
 	const nav = useNavigate();
 
 	const hanldeShop = () => {
-		nav('/dashboard/collections')
-	}
+		nav("/dashboard/collections");
+	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const serviceComponent = document.getElementById("home");
+			if (serviceComponent) {
+				const serviceComponentOffset = serviceComponent.offsetTop;
+				const scrollPosition = window.scrollY + window.innerHeight;
+
+				if (scrollPosition >= serviceComponentOffset) {
+					setShowAnimation(true);
+				} else {
+					setShowAnimation(false);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	return (
 		<AuthGuard>
-			<div className="">
-				<div className="w-[85%] sm:w-full  h-auto  sm:my-10 mx-auto select-none ">
+			<div id="home" className="">
+				<div
+					className={`w-[85%] sm:w-full  h-auto  sm:my-10 mx-auto select-none ${
+						showAnimation &&
+						"animate__animated  animate__slideInLeft  duration-1000"
+					} `}>
 					{loading ? (
 						<DashboardLoadingComponent />
 					) : (
@@ -107,12 +134,14 @@ const DashboardPage = () => {
 					<HomeCarouselComponent />
 
 					<SliderImage />
-					<BestSeller/>
+					<BestSeller />
 					<CustomerComponent />
 
 					<SliderImage2 />
+					<AboutPage />
+
+					<SliderImage3 />
 					<ServiceComponent />
-					<SliderImage3/>
 				</div>
 
 				<div

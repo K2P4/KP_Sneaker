@@ -1,17 +1,44 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SliderImageComponent = () => {
 	const nav = useNavigate();
+		const [showAnimation, setShowAnimation] = useState(false);
+
 
 	const handleShop = () => {
 		nav("/dashboard/collections");
 	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const serviceComponent = document.getElementById("slide1");
+			if (serviceComponent) {
+				const serviceComponentOffset = serviceComponent.offsetTop;
+				const scrollPosition = window.scrollY + window.innerHeight;
+
+				if (scrollPosition >= serviceComponentOffset) {
+					setShowAnimation(true);
+				} else {
+					setShowAnimation(false);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 	return (
 		<div>
-			<div className="w-full  shadow-md  h-screen flex justify-center  my-24 flex-wrap  m-auto">
+			<div
+				id="slide1"
+				className={`w-full  shadow-md ${showAnimation &&
+				"animate__animated  animate__slideInRight  duration-1000"
+			}  h-screen flex justify-center  my-24 flex-wrap  m-auto`}>
 				<div className="group w-[50%] flex  relative  h-[50%] ">
 					<img
 						className="w-full object-cover   group-hover:opacity-85 duration-1000"

@@ -1,15 +1,43 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SliderImage3Component = () => {
+		const [showAnimation, setShowAnimation] = useState(false);
+
 	const nav = useNavigate();
 	const handleShop = () => {
 		nav("/dashboard/collections");
 	};
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const serviceComponent = document.getElementById("slide3");
+			if (serviceComponent) {
+				const serviceComponentOffset = serviceComponent.offsetTop;
+				const scrollPosition = window.scrollY + window.innerHeight;
+
+				if (scrollPosition >= serviceComponentOffset) {
+					setShowAnimation(true);
+				} else {
+					setShowAnimation(false);
+				}
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 	return (
-		<div className="flex items-center flex-wrap w-full h-screen relative justify-center">
+		<div
+			id="slide3"
+			className={`flex items-center flex-wrap  ${
+				showAnimation &&
+				"animate__animated  animate__slideInRight  duration-1000"
+			} w-full h-screen relative justify-center`}>
 			<div className="w-[50%] px-10 py-10 rounded-e-none  rounded-lg border border-black h-[50%]">
 				<h1 className=" text-4xl mb-1 font-semibold ">QUALITY</h1>
 				<h1 className="font-medium text-lg">AND AUTHENTICITY</h1>
@@ -42,8 +70,8 @@ const SliderImage3Component = () => {
 				<h1 className="font-medium text-lg">AND COLLABORATIONS</h1>
 
 				<p className="text-md my-4 tracking-wide text-gray-800">
-					We Collaborate with popular artists , celebrities or other brands to launch limited -edition sneakers exclusive 
-					releases.
+					We Collaborate with popular artists , celebrities or other brands to
+					launch limited -edition sneakers exclusive releases.
 				</p>
 				<button className="border hover:bg-black hover:text-white duration-700 border-black rounded-md px-4 py-2">
 					LEARN MORE
