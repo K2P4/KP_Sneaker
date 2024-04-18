@@ -19,6 +19,8 @@ import {
 import { SneakerContext } from "../service/store/SneakerContextProvider";
 import { useLogoutMutation } from "../service/endpoints/AuthEndpoints";
 import FavouriteComponent from "./Favourite.component";
+import { FaTruckMedical } from "react-icons/fa6";
+import AddtoCartPage from "../page/sneakers/dashboard/module/AddtoCart.page";
 
 const NavComponent = () => {
 	const [RemoveFun, RemoveData] = useLogoutMutation();
@@ -32,15 +34,22 @@ const NavComponent = () => {
 		SetHiddenIcon,
 	} = useContext(SneakerContext);
 
+	const [favToggle, setFavToggle] = useState(false);
+	const [cartToggle, setCartToggle] = useState(false);
+
 	const [toggle, settoggle] = useState(false);
 	const [isFixed, setIsFixed] = useState(false);
 	const { aboutToggle, setaboutToggle, setContactToggle, contactToggle } =
 		useContext(SneakerContext);
 
-		const { fav } = useContext(SneakerContext)
+	const { fav } = useContext(SneakerContext);
 
 	const handleAbout = () => {
 		setaboutToggle(!aboutToggle);
+	};
+
+	const handleCart = () => {
+		setCartToggle(true);
 	};
 
 	const handleContact = () => {
@@ -56,8 +65,7 @@ const NavComponent = () => {
 	const [search, setSearch] = useState("");
 
 	const click = () => {
-		setToggle(true);
-		SetHiddenIcon(true);
+		setFavToggle(true);
 	};
 
 	const handleDashboard = () => {
@@ -67,17 +75,14 @@ const NavComponent = () => {
 
 	const handleCollections = () => {
 		nav("/dashboard/collections");
-		settoggle(!toggle);
 	};
 
 	const handleMen = () => {
 		nav("/dashboard/men");
-		settoggle(!toggle);
 	};
 
 	const handleWomen = () => {
 		nav("/dashboard/women");
-		settoggle(!toggle);
 	};
 
 	const handleSubmit = (event) => {
@@ -107,7 +112,6 @@ const NavComponent = () => {
 		settoggle(!toggle);
 	};
 
-	
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 500) {
@@ -136,15 +140,53 @@ const NavComponent = () => {
 		<div>
 			<div className=" w-[95%]   sm:w-[85%]    mx-auto  ">
 				<Sheet>
-					<SheetContent>
-						<SheetHeader>
-							<SheetTitle>
-								Favourite List <span className="text-orange-500 font-medium ">{fav?.length}</span> Item
-							</SheetTitle>
-							<SheetDescription>You can add more sneaker</SheetDescription>
-							<FavouriteComponent />
-						</SheetHeader>
-					</SheetContent>
+					{favToggle && (
+						<SheetContent>
+							<SheetHeader>
+								<SheetTitle>
+									Favourite List{" "}
+									<span className="text-orange-500 font-medium ">
+										{fav?.length}
+									</span>{" "}
+									Item
+								</SheetTitle>
+								<SheetDescription>
+									You can add wishlist more sneaker
+								</SheetDescription>
+								<FavouriteComponent />
+							</SheetHeader>
+						</SheetContent>
+					)}
+
+					{cartToggle && (
+						<SheetContent>
+							<SheetHeader className="  overflow-scroll ">
+								<SheetTitle className="border-b-gray-300   border-b pb-3 ">
+									<div className="flex gap-1   items-center  ">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											strokeWidth={1.5}
+											stroke="currentColor"
+											className="w-6 text-orange-500 h-6">
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+											/>
+										</svg>
+										<h2 className=" text-xs font-semibold sm:text-1xl sm:tracking-normal ">
+											{" "}
+											List Of Added Sneaker
+										</h2>
+									</div>
+								</SheetTitle>
+
+								<AddtoCartPage />
+							</SheetHeader>
+						</SheetContent>
+					)}
 
 					<div
 						className={` border-b  border-b-gray-300  py-4 sm:pt-4 sm:pb-0  flex justify-between items-center   ${
@@ -185,7 +227,9 @@ const NavComponent = () => {
 							</li>
 
 							<li className="text-gray-500 tracking-wide select-none active:border-b-2   hover:text-orange-500 hover:font-medium transition-transform duration-200  active:border-b-orange-500  active:text-gray-900 active:font-bold  ">
-								<a className=" duration-1000 " onClick={handleContact}>
+								<a
+									onClick={() => scrollToSection("contact")}
+									className=" duration-1000 ">
 									Contact
 								</a>
 							</li>
@@ -362,10 +406,13 @@ const NavComponent = () => {
 								/>
 							</div>
 						</form> */}
+
+							{/*Favourite wishlist*/}
 							<div className="flex items-center gap-3">
 								<div className="relative flex items-center gap-3 sm:gap-0 duration-500 ">
 									<SheetTrigger>
 										<svg
+											onClick={click}
 											xmlns="http://www.w3.org/2000/svg"
 											viewBox="0 0 24 24"
 											fill="currentColor"
@@ -374,20 +421,23 @@ const NavComponent = () => {
 										</svg>
 									</SheetTrigger>
 
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										fill="none"
-										viewBox="0 0 24 24"
-										onClick={click}
-										strokeWidth={1.5}
-										stroke="currentColor"
-										className=" w-7 active:scale-90 h-7">
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-										/>
-									</svg>
+									{/*Add to cart*/}
+									<SheetTrigger>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											onClick={handleCart}
+											viewBox="0 0 24 24"
+											strokeWidth={1.5}
+											stroke="currentColor"
+											className=" w-7 active:scale-90 h-7">
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+											/>
+										</svg>
+									</SheetTrigger>
 
 									<span className="w-4 absolute top-0 -end-1  h-4   text-center mx-auto text-xs font-semibold text-white bg-orange-500 rounded-full ">
 										{cart.length}

@@ -23,6 +23,7 @@ const ContactPage = () => {
 			element.scrollIntoView({ behavior: "smooth" });
 		}
 	};
+	
 
 	return (
 		<div

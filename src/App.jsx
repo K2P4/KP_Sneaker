@@ -27,7 +27,7 @@ const App = () => {
 
 	return (
 		<div className="  ">
-			{toggle && <AddtoCartPage />}
+			
 			<div className="w-full h-screen mx-auto ">
 				<Routes>
 					<Route path="/" element={<AdminPage />} />

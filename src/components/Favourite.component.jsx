@@ -8,8 +8,7 @@ import FavouritlistComponent from "./Favouritlist.component";
 
 const FavouriteComponent = () => {
 	const { fav } = useContext(SneakerContext);
-	console.log(fav);
-
+	
 	return (
 		<div>
 			{fav?.length == 0 && <EmptyFavComponent />}

@@ -22,7 +22,7 @@ const EmptyComponent = () => {
 						src="https://ouch-cdn2.icons8.com/3bX0fX3Ny1iN8gWkpKJvKOs7ag94ZyjmBXa-vbPZgSw/rs:fit:368:348/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvODIy/LzA0ZTgyOGFjLWQ1/MjEtNDZkMC05ZjVj/LWIzYTM2MzllZmVm/Zi5wbmc.png"
 						alt=""
 					/>
-					<h5 className=" mt-40 sm:text-md font-medium text-gray-700  ">
+					<h5 className="  mt-8 sm:text-md font-medium text-gray-700  ">
 						There Has No Item .{" "}
 						<span
 							onClick={handleBack}
@@ -32,23 +32,7 @@ const EmptyComponent = () => {
 					</h5>
 				</div>
 
-				<button
-					onClick={handleBack}
-					className=" duration-500 fixed top-4 sm:end-5  end-4   active:scale-95 rounded-sm hover:bg-slate-100 ">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 24 24"
-						strokeWidth={1.5}
-						stroke="currentColor"
-						className="w-7  h-7">
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							d="M6 18 18 6M6 6l12 12"
-						/>
-					</svg>
-				</button>
+				
 			</div>
 		</div>
 	);

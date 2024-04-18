@@ -17,20 +17,6 @@ const AddtoCartPage = () => {
 		nav("/dashboard/collections");
 	};
 
-	// useEffect(() => {
-	// 	const handleMouse = (e) => {
-	// 		if (!MenuRef.current.contains(e.target)) {
-	// 			setToggle(!toggle);
-	// 			console.log("toggle")
-	// 		}
-
-	// 		window.addEventListener("mousedown", handleMouse);
-
-	// 		return () => {
-	// 			window.addEventListener("mousedown", handleMouse);
-	// 		};
-	// 	};
-	// }, []);
 
 	const toggleOrder = () => {
 		setOrder(!order);
@@ -43,55 +29,13 @@ const AddtoCartPage = () => {
 
 	return (
 		<div>
-			<div
-				
-				className="fixed overflow-scroll  animate__animated animate__bounceInRight  z-10 top-0 end-0 bg-gray-50  border  w-[70%]  sm:w-[25%] h-screen mx-auto ">
-				<div className="px-3 mt-5">
+			
+				<div className="px-3  mt-5">
 					{cart.length == 0 && <EmptyComponent />}
 
+					
 					{cart.length > 0 && (
-						<div className=" flex   justify-between border-b-gray-300 border-b pb-3  ">
-							<div className="flex gap-1 items-center  ">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="w-6 text-orange-500 h-6">
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-									/>
-								</svg>
-								<h2 className=" text-xs font-semibold sm:text-1xl sm:tracking-normal ">
-									{" "}
-									List Of Added Sneaker
-								</h2>
-							</div>
-
-							<button
-								onClick={handleBack}
-								className=" duration-500    p-1 sm:p-0  active:scale-95 rounded-sm   ">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="w-5 h-5 sm:w-6 sm:h-6">
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M6 18 18 6M6 6l12 12"
-									/>
-								</svg>
-							</button>
-						</div>
-					)}
-					{cart.length > 0 && (
-						<div className="">
+						<div className="   ">
 							{!order && (
 								<div className="">
 									{cart?.map((item) => (
@@ -108,7 +52,7 @@ const AddtoCartPage = () => {
 								/>
 							)}
 
-							<div className="  mt-20  ">
+							<div className="     mt-60  ">
 								<div className="flex justify-between items-center pt-2 border-t boder-t-gray-400  ">
 									<p className=" font-bold text-gray-700  tracking-wide">
 										Total
@@ -128,7 +72,7 @@ const AddtoCartPage = () => {
 						</div>
 					)}
 				</div>
-			</div>
+			
 		</div>
 	);
 };

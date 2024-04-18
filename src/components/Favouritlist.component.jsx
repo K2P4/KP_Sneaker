@@ -2,14 +2,24 @@
 
 import React, { useContext } from "react";
 import { SneakerContext } from "../service/store/SneakerContextProvider";
+import useFetch from "../hook/useFetch";
+import { LatestService } from "../service/popular.service";
 
 const FavouritlistComponent = () => {
 	const { fav, toggleFav } = useContext(SneakerContext);
+	const { data, loading } = useFetch(LatestService, "Latest");
+
+	
+	const filterDyanmicFav = fav?.filter((item) => item.id == data?.id);
+
+	console.log(filterDyanmicFav);
 
 	return (
 		<div className=" mt-4">
 			{fav?.map((item) => (
-				<div className=" border mb-2 shadow-md hover:shadow-slate-500 duration-300   group px-4 relative rounded-md bg-slate-200 ">
+				<div
+					key={item.id}
+					className=" border mb-2 shadow-md hover:shadow-slate-500 duration-300   group px-4 relative rounded-md bg-slate-200 ">
 					<img
 						className=" group-hover:scale-105 group-hover:pb-2 duration-700  mx-auto text-center  object-cover "
 						src={item.image}
