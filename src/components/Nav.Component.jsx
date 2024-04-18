@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import { SneakerContext } from "../service/store/SneakerContextProvider";
 import { useLogoutMutation } from "../service/endpoints/AuthEndpoints";
+import FavouriteComponent from "./Favourite.component";
 
 const NavComponent = () => {
 	const [RemoveFun, RemoveData] = useLogoutMutation();
@@ -35,6 +36,8 @@ const NavComponent = () => {
 	const [isFixed, setIsFixed] = useState(false);
 	const { aboutToggle, setaboutToggle, setContactToggle, contactToggle } =
 		useContext(SneakerContext);
+
+		const { fav } = useContext(SneakerContext)
 
 	const handleAbout = () => {
 		setaboutToggle(!aboutToggle);
@@ -135,11 +138,11 @@ const NavComponent = () => {
 				<Sheet>
 					<SheetContent>
 						<SheetHeader>
-							<SheetTitle>Are you absolutely sure?</SheetTitle>
-							<SheetDescription>
-								This action cannot be undone. This will permanently delete your
-								account and remove your data from our servers.
-							</SheetDescription>
+							<SheetTitle>
+								Favourite List <span className="text-orange-500 font-medium ">{fav?.length}</span> Item
+							</SheetTitle>
+							<SheetDescription>You can add more sneaker</SheetDescription>
+							<FavouriteComponent />
 						</SheetHeader>
 					</SheetContent>
 

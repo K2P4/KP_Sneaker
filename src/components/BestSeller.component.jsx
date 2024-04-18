@@ -91,7 +91,9 @@ const BestSellerComponent = () => {
 				) : (
 					<Slider className="   " {...settings}>
 						{data?.map((item) => (
-							<div className="w-[50%]   hover:shadow-slate-500 hover:opacity-95   h-[300px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-xl shadow-slate-400 ">
+							<div
+								key={item.id}
+								className="w-[50%]   hover:shadow-slate-500 hover:opacity-95   h-[300px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-xl shadow-slate-400 ">
 								<img
 									className="mx-auto w-full h-[50%] rounded-sm bg-slate-200  object-contain text-center"
 									src={item.image}

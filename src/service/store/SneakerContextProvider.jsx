@@ -19,9 +19,13 @@ const SneakerContextProvider = ({ children }) => {
 	const [disabled, setDisabled] = useState(false);
 	const [hiddenIcon, SetHiddenIcon] = useState(false);
 	const [isChecked, setChecked] = useState(false);
-
+	const [fav, setFav] = useState([]);
 	const toggleDelete = (id) => {
 		setCart(cart.filter((item) => item.id != id));
+	};
+
+	const toggleFav = (id) => {
+		setFav(fav.filter((item) => item.id != id));
 	};
 
 	const handleSearch = (query) => {
@@ -76,9 +80,14 @@ const SneakerContextProvider = ({ children }) => {
 		);
 	};
 
+	const addFav = (newFav) => {
+		setFav([...fav, newFav]);
+	};
+
 	const addCart = (newCart) => {
 		setCart([...cart, newCart]);
 	};
+
 	return (
 		<div>
 			<SneakerContext.Provider
@@ -88,6 +97,7 @@ const SneakerContextProvider = ({ children }) => {
 					contactToggle,
 					filterCart,
 					setFilterCart,
+					toggleFav,
 					setToggle,
 					toggle,
 					handleSearch,
@@ -104,12 +114,14 @@ const SneakerContextProvider = ({ children }) => {
 					handleCheckBox,
 					addCart,
 					cart,
+					addFav,
 					toggleDelete,
 					toggleAddRemove,
 					setaboutToggle,
 					aboutToggle,
 					setoogleAnimation,
 					toggleAnimation,
+					fav,
 				}}>
 				{children}
 			</SneakerContext.Provider>
