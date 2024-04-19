@@ -98,30 +98,42 @@ const DashboardPage = () => {
 												scale: 1.01,
 												boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.7)",
 											}}>
-											<div className=" group   bg-slate-50  h-[480px] m-auto  relative  shadow-lg shadow-orange-400   px-5    rounded-md w-full flex  align-middle items-center justify-between ">
-												<div className="w-[60%] z-20  animate__slideInLeft duration-1000 transition-shadow animate__animated">
-													<h1 className=" font-bold text-orange-400 text-3xl ">
+											<div className=" group   bg-slate-50 h-[630px]  sm:h-[480px] m-auto  items-center align-middle relative    sm:shadow-lg shadow-slate-200 sm:shadow-orange-400   px-5    rounded-md w-full flex-col mt-3 sm:mt-0 flex sm:flex-row  sm:align-middle sm:items-center justify-between ">
+												<div className="sm:w-[60%] z-20  w-full animate__slideInLeft duration-1000 transition-shadow animate__animated">
+													<h1 className=" hidden sm:block font-bold text-xl   text-orange-400 sm:text-3xl ">
 														{item.name}
 													</h1>
-													<p className="text-md my-6 tracking-wide h-[170px] text-gray-700  text-justify">
+													<p className="sm:text-md text-xs hidden sm:inline-flex  h-[270]px  leading-5 sm:leading-0  my-3 sm:my-6 tracking-wide sm:h-[170px] text-gray-700  text-justify">
 														{item.description}
 													</p>
 
 													<button
 														onClick={hanldeShop}
-														className="bg-orange-500 hover:bg-orange-600 active:scale-90 duration-300  text-white text-lg  font-semibold px-7 py-2 rounded-lg">
+														className="bg-orange-500 hidden sm:flex hover:bg-orange-600 active:scale-90 duration-300  text-white text-lg  font-semibold px-7 py-2 rounded-lg">
 														SHOP NOW
 													</button>
 												</div>
 
-												<div className="   w-[400px] h-[400px]  bg-orange-500  border boder-2    border-orange-500 absolute top-5  z-20 left-[60%] rounded-full"></div>
+												<div className=" w-[260px] h-[260px]  sm:w-[400px] sm:h-[400px]  bg-orange-500  border boder-2  top-[10%]   border-orange-500 absolute sm:top-5  z-20 sm:left-[60%] rounded-full"></div>
 												<img
 													className={`    w-full ${
 														toggleAnimation && "  animate-bounce  "
-													} animate__slideInRight animate__animated   absolute z-20  transition-transform duration-1000 rounded-full     left-80 top-0   text-center mx-auto  h-full  object-contain `}
+													} animate__slideInRight animate__animated   absolute z-20  transition-transform duration-1000 rounded-full    -top-32   sm:left-80 sm:top-0   text-center mx-auto  h-full  object-contain `}
 													src={item.image}
 													alt=""
 												/>
+
+												<div className="sm:hidden  mb-32 flex flex-col gap-10">
+													<h1 className="   text-center  font-bold text-xl    text-orange-400 sm:text-3xl ">
+														{item?.name}
+													</h1>
+
+													<button
+														onClick={hanldeShop}
+														className="bg-orange-500   hover:bg-orange-600 active:scale-90 duration-300  text-white text-lg  font-semibold px-7 py-2 rounded-lg">
+														SHOP NOW
+													</button>
+												</div>
 											</div>
 										</motion.div>
 									</CarouselItem>

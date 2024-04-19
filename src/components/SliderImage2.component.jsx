@@ -44,12 +44,12 @@ const SliderImage2Component = () => {
 			id="slide2"
 			className={`flex justify-between  ${
 				showAnimation &&
-				"animate__animated  animate__slideInRight  duration-1000"
+				"animate__animated  animate__slideInRight  my-24  duration-1000"
 			} flex-col`}>
-			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
+			<h1 className=" text-gray-800 bodyFont ms-5   border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
 				Shop By Category
 			</h1>
-			<div className="w-full flex items-center  my-16 h-full">
+			<div className="w-full flex items-center   mt-8 h-full">
 				<div className="w-[35%] hover:opacity-90 duration-500 relative  ">
 					<img
 						className=""

@@ -36,7 +36,7 @@ const SliderImage3Component = () => {
 			id="slide3"
 			className={`flex items-center flex-wrap  ${
 				showAnimation &&
-				"animate__animated  animate__slideInRight  duration-1000"
+				"animate__animated  animate__slideInRight mb-20  duration-1000"
 			} w-full h-screen relative justify-center`}>
 			<div className="w-[50%] px-10 py-10 rounded-e-none  rounded-lg border border-black h-[50%]">
 				<h1 className=" text-4xl mb-1 font-semibold ">QUALITY</h1>

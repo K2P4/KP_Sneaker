@@ -40,9 +40,9 @@ const AboutPage = () => {
 			id="about"
 			className={` ${
 				showAnimation &&
-				"animate__animated  animate__slideInLeft  duration-1000"
+				"animate__animated  animate__slideInLeft  mb-20 duration-1000"
 			} `}>
-			<div className=" w-full about bg-slate-200 border-slate-300 shadow-lg shadow-slate-500 sm:w-[80%] mx-auto h-auto my-28 pt-4  rounded-lg  ">
+			<div className=" w-full about bg-slate-200  border-slate-300 shadow-lg shadow-slate-500 sm:w-[80%] mx-auto h-auto my-28 pt-4  rounded-lg  ">
 				<div className="flex flex-col gap-1 align-middle items-center">
 					<div className="animate__bounceInLeft bodyFont flex flex-col gap-1 sm:gap-0  animate__animated   duration-700 transition-transform ">
 						<p className="text-center  tracking-widest aboutFont  text-orange-500 sm:text-4xl">

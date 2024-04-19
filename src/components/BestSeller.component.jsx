@@ -40,7 +40,7 @@ const BestSellerComponent = () => {
 
 	const settings = {
 		dots: true,
-		className: "center h-[310px] px-5 ",
+		className: "center h-[360px] px-5 ",
 		centerMode: true,
 		infinite: true,
 		centerPadding: "60px",
@@ -89,7 +89,7 @@ const BestSellerComponent = () => {
 					Products
 				</h1>
 			</div>
-			<div className="slider-container mt-5">
+			<div className="slider-container mt-9">
 				{loading ? (
 					<HomeLoadingComponent />
 				) : (

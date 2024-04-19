@@ -65,7 +65,7 @@ const HomeCarouselComponent = () => {
 						className={` ${
 							showAnimation &&
 							"animate__animated  animate__slideInLeft  duration-1000"
-						} w-full h-auto my-4 sm:my-16  `}>
+						} w-full h-auto my-12  sm:my-16  `}>
 						<div className=" text-gray-800   font-bold text-center">
 							<h1 className="sm:text-4xl text-2xl  text-orange-500    bodyFont  tracking-wide">
 								New Release{" "}
@@ -76,7 +76,7 @@ const HomeCarouselComponent = () => {
 							</h1>
 						</div>
 
-						<div className="flex items-center justify-center mt-10 flex-wrap gap-10">
+						<div className="flex items-center justify-center sm:mt-10 mt-4 flex-wrap  gap-5 sm:gap-10">
 							{data?.map((item) => (
 								<Home2Component item={item} key={item.id} />
 							))}

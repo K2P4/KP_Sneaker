@@ -29,7 +29,7 @@ const SellerProductComponent = ({ item: { id, image, name, price } }) => {
 		setAdded(!added);
 	};
 	return (
-		<div className=" w-full  hover:shadow-slate-500 hover:opacity-95   h-[300px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-xl shadow-slate-400 ">
+		<div className=" w-full  hover:shadow-slate-500 hover:opacity-95   h-[350px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-xl shadow-slate-400 ">
 			<img
 				className="mx-auto w-full h-[50%] rounded-sm bg-slate-200  object-contain text-center"
 				src={image}
