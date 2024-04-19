@@ -3,10 +3,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { SneakerContext } from "../service/store/SneakerContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const SellerProductComponent = ({ item: { id, image, name, price } }) => {
 	const { addFav } = useContext(SneakerContext);
 	const [added, setAdded] = useState(false);
+
+	const nav = useNavigate();
+
+
+	
+	const handleDetail = () => {
+		nav(`/dashboard/collections`);
+	};
 
 	const toggleFavourite = () => {
 		const newFav = {
@@ -38,7 +47,9 @@ const SellerProductComponent = ({ item: { id, image, name, price } }) => {
 				viewBox="0 0 24 24"
 				strokeWidth={1.5}
 				stroke="currentColor"
-				className={`w-6 absolute ${added ? "text-orange-500  " : "flex"} top-5 duration-500 active:scale-90 right-5 h-6`}>
+				className={`w-6 absolute ${
+					added ? "text-orange-500  " : "flex"
+				} top-5 duration-500 active:scale-90 right-5 h-6`}>
 				<path
 					strokeLinecap="round"
 					strokeLinejoin="round"
@@ -63,6 +74,7 @@ const SellerProductComponent = ({ item: { id, image, name, price } }) => {
 						viewBox="0 0 24 24"
 						strokeWidth={1.5}
 						stroke="currentColor"
+						onClick={handleDetail}
 						className="   w-14 text-white px-4 py-2 ">
 						<path
 							strokeLinecap="round"

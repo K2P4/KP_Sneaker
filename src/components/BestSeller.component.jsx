@@ -9,9 +9,12 @@ import { MdPadding } from "react-icons/md";
 import Slider from "react-slick";
 import HomeLoadingComponent from "./HomeLoading.component";
 import SellerProductComponent from "./SellerProduct.component";
+import { useNavigate } from "react-router-dom";
 const BestSellerComponent = () => {
 	const { data, loading } = useFetch(LatestService, "Latest");
 	const [showAnimation, setShowAnimation] = useState(false);
+
+	
 
 	const CustomPrevArrow = (props) => {
 		const { className, onClick } = props;

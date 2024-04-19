@@ -4,11 +4,12 @@ import React, { createContext, useState } from "react";
 import useFetch from "../../hook/useFetch";
 import { sneakerDataService } from "../sneakerdata.service.js";
 
+
 export const SneakerContext = createContext();
 
 const SneakerContextProvider = ({ children }) => {
 	const { data, loading, error } = useFetch(sneakerDataService, "sneakers");
-
+	const [cartToggle, setCartToggle] = useState(false);
 	const [cart, setCart] = useState([]);
 	const [toggleAnimation, setoogleAnimation] = useState(false);
 
@@ -100,6 +101,8 @@ const SneakerContextProvider = ({ children }) => {
 					toggleFav,
 					setToggle,
 					toggle,
+					cartToggle, 
+					setCartToggle,
 					handleSearch,
 					disabled,
 					hiddenIcon,

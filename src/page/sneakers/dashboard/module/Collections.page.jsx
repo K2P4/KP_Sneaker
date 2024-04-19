@@ -21,6 +21,8 @@ import {
 const CollectionsPage = () => {
 	const { data, loading } = useContext(SneakerContext);
 	const [filteredProducts, setFilteredProducts] = useState(data);
+	const [toggleProduct, setToggleProduct] = useState(false);
+	const [newProducts, setNewProducts] = useState([]);
 
 	const handleSearch = (query) => {
 		const filtered = data?.filter((product) =>
@@ -29,8 +31,17 @@ const CollectionsPage = () => {
 		setFilteredProducts(filtered);
 	};
 
-	const collection = Array.from({ length: 18 }, (_, index) => index);
+	const handleFilter = (newStatus) => {
+		const filterNew = data?.filter((item) => item?.status == newStatus);
+		setNewProducts(filterNew);
+		setToggleProduct(true);
+	};
+
+	console.log(newProducts);
+
 	
+
+	const collection = Array.from({ length: 18 }, (_, index) => index);
 
 	return (
 		<div className=" ">
@@ -86,20 +97,34 @@ const CollectionsPage = () => {
 								</button>
 							</DropdownMenuTrigger>
 							<DropdownMenuContent>
-								
 								<DropdownMenuSeparator />
-								<DropdownMenuItem>New</DropdownMenuItem>
-								<DropdownMenuItem>Discount</DropdownMenuItem>
-								<DropdownMenuItem>Most</DropdownMenuItem>
-								
+								<DropdownMenuItem onClick={() => handleFilter("new")}>
+									New
+								</DropdownMenuItem>
+								<DropdownMenuItem onClick={() => handleFilter("discount")}>
+									Discount
+								</DropdownMenuItem>
+								<DropdownMenuItem onClick={() => handleFilter("most")}>
+									Most
+								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
 					</div>
 
 					<div className="flex my-3 flex-wrap gap-10 text-center justify-center ">
-						{filteredProducts?.map((item) => (
-							<ProductsComponent item={item} key={item.id} />
-						))}
+						{toggleProduct ? (
+							<>
+								{newProducts?.map((item) => (
+									<ProductsComponent item={item} key={item.id} />
+								))}
+							</>
+						) : (
+							<>
+								{filteredProducts?.map((item) => (
+									<ProductsComponent item={item} key={item.id} />
+								))}
+							</>
+						)}
 					</div>
 				</div>
 			)}

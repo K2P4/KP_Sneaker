@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import FormComponent from "../../components/Form.component";
 import { ButtonComponent, ErrorComponent } from "../../components";
 import * as yup from "yup";
-
+import { toast } from "sonner";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useSigninMutation } from "../../service/endpoints/AuthEndpoints";
 import AuthGuard from "../../components/guard/AuthGuard";
@@ -35,6 +35,7 @@ const AdminPage = () => {
 	useEffect(() => {
 		if (data?.data?.success) {
 			nav("/dashboard");
+			toast.success("Login Successfully");
 		}
 	}, [data]);
 
@@ -45,6 +46,7 @@ const AdminPage = () => {
 
 		
 		action.reset();
+		toast.success("Login Successfully");
 	};
 
 	return (

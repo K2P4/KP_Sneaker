@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FaGithub, FaInstagram } from "react-icons/fa6";
@@ -12,10 +12,15 @@ import { FaArrowAltCircleUp } from "react-icons/fa";
 
 import { CiTwitter } from "react-icons/ci";
 import { SneakerContext } from "../../../../service/store/SneakerContextProvider";
+import { useCreateMutation } from "../../../../service/endpoints/Contact";
+import { Loader2 } from "lucide-react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
 
 const ContactPage = () => {
 	const { contactToggle } = useContext(SneakerContext);
-
+	const [CreateFun, { data, isLoading }] = useCreateMutation();
+	const InputRef = useRef("");
 
 	const scrollToSection = (id) => {
 		const element = document.getElementById(id);
@@ -23,7 +28,22 @@ const ContactPage = () => {
 			element.scrollIntoView({ behavior: "smooth" });
 		}
 	};
-	
+
+	const initailValue = {
+		email: "",
+	};
+
+	const validationSchema = yup.object({
+		email: yup
+			.string()
+			.required("email is required")
+			.email("invalid email format"),
+	});
+
+	const handleSubmit = async (value) => {
+		console.log(value);
+		CreateFun(value);
+	};
 
 	return (
 		<div
@@ -95,34 +115,64 @@ const ContactPage = () => {
 					<p className="text-md mt-2 sm:mt-0 tracking-wide font-medium text-gray-700 ">
 						Enter your email to get notify about our new activity
 					</p>
-
-					<div
-						className="flex w-[90%] text-sm border-slate-500 mt-4 justify-between border  px-2   items-center  
+					<Formik
+						validateOnChange={false}
+						validateOnBlur={false}
+						validationSchema={validationSchema}
+						initialValues={initailValue}
+						onSubmit={handleSubmit}>
+						{({ isSubmitting, handleChange, handleBlur, values }) => (
+							<Form>
+								<div
+									className="flex w-[90%] text-sm border-slate-500 mt-4 justify-between border  px-2   items-center  
 						 rounded-md  ">
-						<input
-							placeholder="Email"
-							className="sm:w-[90px]  text-sm tracking-wide bg-transparent  border-0 focus:ring-0  text-md  "
-							type="text"
-							name="email"
-						/>
+									<input
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.email}
+										placeholder="Email"
+										className=" w-full  bg-white focus:bg-white   text-sm tracking-wid ring-0  border-0 focus:ring-0  text-md  "
+										type="email"
+										name="email"
+										id="email"
+									/>
 
-						<IoMdMail className=" text-5xl sm:text-xl" />
-					</div>
+									<IoMdMail className=" text-5xl sm:text-xl" />
+								</div>
 
-					<button className=" hidden  sm:flex align-middle  items-center gap-2  font-medium bg-orange-500 rounded-md mt-3 active:scale-95 text-white px-3 py-2">
-						Send Here
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							fill="currentColor"
-							className="w-5 h-5">
-							<path
-								fillRule="evenodd"
-								d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z"
-								clipRule="evenodd"
-							/>
-						</svg>
-					</button>
+								<ErrorMessage
+									component={"p"}
+									name="email"
+									className="text-orange-500 text-sm font-medium"
+								/>
+
+								<button className=" hidden  sm:flex align-middle  items-center gap-2  font-medium bg-orange-500 rounded-md mt-3 active:scale-95 text-white px-3 py-2">
+									{isLoading ? (
+										<div className="flex items-center gap-2">
+											Sending
+											<Loader2 className=" mr-2 text-white  m-auto text-center  h-6  w-6  animate-spin" />
+										</div>
+									) : (
+										<>
+											{" "}
+											Send Message{" "}
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												className="w-5 h-5">
+												<path
+													fillRule="evenodd"
+													d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z"
+													clipRule="evenodd"
+												/>
+											</svg>
+										</>
+									)}
+								</button>
+							</Form>
+						)}
+					</Formik>
 				</div>
 				<div className="flex  sm:hidden flex-col space-y-2 items-center justify-center mx-auto ">
 					<div

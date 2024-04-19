@@ -26,7 +26,7 @@ const ServiceComponent = () => {
   return (
 		<div
 			id="service"
-			className={`w-full h-[500px]  justify-between  flex flex-col gap-10 ${
+			className={`w-full h-[500px]  justify-between  flex flex-col   mt-16  gap-16 ${
 				showAnimation &&
 				"animate__animated  animate__slideInLeft  duration-1000"
 			} `}>

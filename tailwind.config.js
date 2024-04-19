@@ -1,4 +1,8 @@
-/** @type {import('tailwindcss').Config} */
+/**
+ * @format
+ * @type {import('tailwindcss').Config}
+ */
+
 module.exports = {
 	darkMode: ["class"],
 	content: [
@@ -6,6 +10,7 @@ module.exports = {
 		"./components/**/*.{js,jsx}",
 		"./app/**/*.{js,jsx}",
 		"./src/**/*.{js,jsx}",
+		"node_modules/flowbite-react/lib/esm/**/*.js",
 	],
 	prefix: "",
 	theme: {
@@ -18,9 +23,9 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-					sans: ["Montserrat", "sans-serif"],
-					serif: ["Roboto"],
-				},
+				sans: ["Montserrat", "sans-serif"],
+				serif: ["Roboto"],
+			},
 			keyframes: {
 				"accordion-down": {
 					from: { height: "0" },
@@ -37,5 +42,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate", "flowbite/plugin")],
 };

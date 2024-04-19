@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import FormComponent from "../../components/Form.component";
 import { ButtonComponent } from "../../components";
 import * as yup from "yup";
-
+import { toast } from "sonner";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useSignupMutation } from "../../service/endpoints/AuthEndpoints";
 
@@ -56,6 +56,8 @@ const RegisterPage = () => {
 		if (data.isSuccess) {
 			nav("/");
 		}
+
+		toast.success("Register Successfully");
 	};
 
 	return (

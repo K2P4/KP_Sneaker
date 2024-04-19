@@ -22,7 +22,7 @@ const EmptyComponent = () => {
 						src="https://ouch-cdn2.icons8.com/3bX0fX3Ny1iN8gWkpKJvKOs7ag94ZyjmBXa-vbPZgSw/rs:fit:368:348/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvODIy/LzA0ZTgyOGFjLWQ1/MjEtNDZkMC05ZjVj/LWIzYTM2MzllZmVm/Zi5wbmc.png"
 						alt=""
 					/>
-					<h5 className="  mt-8 sm:text-md font-medium text-gray-700  ">
+					<h5 className="   mt-14 sm:text-md mx-auto text-center font-medium text-gray-700  ">
 						There Has No Item .{" "}
 						<span
 							onClick={handleBack}
