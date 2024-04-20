@@ -416,7 +416,7 @@ const NavComponent = () => {
 								<Link to="/dashboard">
 									<img
 										className="   w-16 h-16"
-										src="../../img/logo.png"
+										src="https://i.ibb.co/4RmmXvg/logo.png"
 										alt=""
 									/>
 								</Link>

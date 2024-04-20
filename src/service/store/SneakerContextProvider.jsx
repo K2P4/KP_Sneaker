@@ -4,7 +4,6 @@ import React, { createContext, useState } from "react";
 import useFetch from "../../hook/useFetch";
 import { sneakerDataService } from "../sneakerdata.service.js";
 
-
 export const SneakerContext = createContext();
 
 const SneakerContextProvider = ({ children }) => {
@@ -85,6 +84,10 @@ const SneakerContextProvider = ({ children }) => {
 		setFav([...fav, newFav]);
 	};
 
+	const removeCart = () => {
+		setCart([]);
+	};
+
 	const addCart = (newCart) => {
 		setCart([...cart, newCart]);
 	};
@@ -101,7 +104,7 @@ const SneakerContextProvider = ({ children }) => {
 					toggleFav,
 					setToggle,
 					toggle,
-					cartToggle, 
+					cartToggle,
 					setCartToggle,
 					handleSearch,
 					disabled,
@@ -109,7 +112,9 @@ const SneakerContextProvider = ({ children }) => {
 					setChecked,
 					data,
 					loading,
+
 					error,
+					removeCart,
 					SetHiddenIcon,
 					isChecked,
 					toggleRemove,

@@ -32,11 +32,13 @@ import { useGetProfileQuery } from "../../../../service/endpoints/AuthEndpoints"
 import { useCreateMutation } from "../../../../service/endpoints/Contact";
 
 const AddtoCartPage = () => {
-	const { cart, setToggle, cartToggle, setCartToggle, toggle } =
+	const { cart, setToggle, setCart, cartToggle, setCartToggle, toggle } =
 		useContext(SneakerContext);
 	const [CreateFun] = useCreateMutation();
 	const [success, setSuccess] = useState(false);
 	const { data, isLoading } = useGetProfileQuery();
+
+	console.log(cart);
 
 	const [order, setOrder] = useState(false);
 	const MenuRef = useRef();
@@ -73,9 +75,11 @@ const AddtoCartPage = () => {
 			toast.success("Order Successfull");
 			nav("/dashboard/collections");
 		}, 1000);
+		setCart([]);
 		setCartToggle(!cartToggle);
 
 		action.reset();
+		
 	};
 
 	const costTotal = cart.reduce((total, product) => {
