@@ -44,13 +44,13 @@ const SliderImage2Component = () => {
 			id="slide2"
 			className={`flex justify-between  ${
 				showAnimation &&
-				"animate__animated  animate__slideInRight  my-24  duration-1000"
+				"animate__animated  animate__slideInRight my-20  sm:my-24  duration-1000"
 			} flex-col`}>
-			<h1 className=" text-gray-800 bodyFont ms-5   border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
+			<h1 className=" text-gray-800 bodyFont ms-5   border-b-orange-300 border-b sm:w-[20%]  text-3xl header font-bold tracking-wide ">
 				Shop By Category
 			</h1>
-			<div className="w-full flex items-center   mt-8 h-full">
-				<div className="w-[35%] hover:opacity-90 duration-500 relative  ">
+			<div className="w-full flex  flex-col sm:flex-row items-center   mt-8 h-full">
+				<div className="sm:w-[35%]  hover:opacity-90 duration-500 relative  ">
 					<img
 						className=""
 						src="https://www.converse.com/on/demandware.static/-/Library-Sites-SharedLibrary/default/dw6c46638c/firstspirit/media/homepage_1/2024_spring_1/03_march/D_Converse_04_04_24_GBL_NA_New_Arrivals_Women.jpg"
@@ -76,7 +76,7 @@ const SliderImage2Component = () => {
 						SHOP WOMEN
 					</button>
 				</div>
-				<div className="w-[35%] hover:opacity-90 duration-500 relative  ">
+				<div className="sm:w-[35%] hover:opacity-90 duration-500 relative  ">
 					<img
 						className=""
 						src="https://www.converse.com/on/demandware.static/-/Library-Sites-SharedLibrary/default/dw81d301c6/firstspirit/media/homepage_1/2024_summer_1/01_april_1/D_Converse_04_04_24_GBL_NA_New_Arrivals_Men.jpg"
@@ -103,7 +103,7 @@ const SliderImage2Component = () => {
 					</button>
 				</div>
 
-				<div className="w-[35%]  hover:opacity-90 duration-500 relative  ">
+				<div className="sm:w-[35%]  hover:opacity-90 duration-500 relative  ">
 					<img
 						className=""
 						src="https://www.converse.com/on/demandware.static/-/Library-Sites-SharedLibrary/default/dw13276789/firstspirit/media/homepage_1/2024_summer_1/01_april_1/D_Converse_04_04_24_GBL_NA_New_Arrivals_Kids.jpg"

@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/carousel";
 import useFetch from "../../../hook/useFetch";
 import Autoplay from "embla-carousel-autoplay";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 
 import { Link, useNavigate } from "react-router-dom";
 import HomeCarouselComponent from "../../../components/HomeCarousel.component";
@@ -103,7 +105,7 @@ const DashboardPage = () => {
 													<h1 className=" hidden sm:block font-bold text-xl   text-orange-400 sm:text-3xl ">
 														{item.name}
 													</h1>
-													<p className="sm:text-md text-xs hidden sm:inline-flex  h-[270]px  leading-5 sm:leading-0  my-3 sm:my-6 tracking-wide sm:h-[170px] text-gray-700  text-justify">
+													<p className=" sm:text-base  text-xs hidden sm:inline-flex  h-[270]px  leading-5 sm:leading-6  my-3 sm:my-6 tracking-wide sm:h-[170px] text-gray-700  text-justify">
 														{item.description}
 													</p>
 
@@ -123,7 +125,7 @@ const DashboardPage = () => {
 													alt=""
 												/>
 
-												<div className="sm:hidden  mb-32 flex flex-col gap-10">
+												<div className="sm:hidden   mb-24 flex flex-col gap-10">
 													<h1 className="   text-center  font-bold text-xl    text-orange-400 sm:text-3xl ">
 														{item?.name}
 													</h1>

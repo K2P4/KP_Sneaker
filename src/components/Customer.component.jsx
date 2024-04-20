@@ -30,8 +30,8 @@ const CustomerComponent = () => {
 		};
 	}, []);
 	return (
-		<div className="  flex flex-col sm:mt-0    gap-5 justify-center sm:gap-16  ">
-			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b w-[20%]  text-3xl header font-bold tracking-wide ">
+		<div className="  flex flex-col sm:mt-0  my-20 sm:my-0   gap-5 justify-center sm:gap-16  ">
+			<h1 className=" text-gray-800 bodyFont ms-5 mt-10 border-b-orange-300 border-b sm:w-[20%]  text-3xl header font-bold tracking-wide ">
 				Customer Review
 			</h1>
 
@@ -84,7 +84,7 @@ const CustomerComponent = () => {
 						scale: 0.9,
 						boxShadow: "0px 0px 20px rgba(0, 0, 0, 10)",
 					}}
-					className=" sm:h-[450px]  h-[350px]   py-3 px-3  rounded-lg w-full sm:w-[30%] shadow-slate-500 shadow-md bg-slate-300 ">
+					className=" sm:h-[450px]  h-[380px]   py-3 px-3  rounded-lg w-full sm:w-[30%] shadow-slate-500 shadow-md bg-slate-300 ">
 					<img
 						className="   object-cover ring-2 ring-slate-400     text-center mx-auto    h-20 w-20 sm:h-24 sm:w-24 rounded-full     shadow-md shadow-slate-100    opacity-95  "
 						src="https://i.ibb.co/WWFHfFn/Aye.jpg"

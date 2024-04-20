@@ -29,7 +29,7 @@ const SellerProductComponent = ({ item: { id, image, name, price } }) => {
 		setAdded(!added);
 	};
 	return (
-		<div className=" w-full  hover:shadow-slate-500 hover:opacity-95   h-[350px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-xl shadow-slate-400 ">
+		<div className=" w-full  hover:shadow-slate-500 hover:opacity-95  h-[360px]  sm:h-[350px] border border-slate-200 rounded-lg group relative flex flex-col items-center shadow-xl shadow-slate-400 ">
 			<img
 				className="mx-auto w-full h-[50%] rounded-sm bg-slate-200  object-contain text-center"
 				src={image}
@@ -57,14 +57,16 @@ const SellerProductComponent = ({ item: { id, image, name, price } }) => {
 				/>
 			</svg>
 
-			<h1 className="text-center  h-16 text-lg text-gray-900 font-bold my-2">
+			<h1 className="text-center text-xs sm:h-16 sm:text-lg text-gray-900 font-bold sm:my-2">
 				{name}
 			</h1>
 
-			<div className=" flex items-center  gap-16  justify-between ">
+			<div className=" flex items-center  sm:gap-16  justify-between ">
 				<div className="flex flex-col justify-start ">
-					<p className="text-md tracking-wide font-medium ">Price</p>
-					<p className="text-md text-gray-700 tracking-wide  ">$ {price}</p>
+					<p className="sm:text-md text-sm tracking-wide font-medium ">Price</p>
+					<p className="sm:text-md text-sm  text-gray-700 tracking-wide  ">
+						$ {price}
+					</p>
 				</div>
 
 				<button className="bg-orange-500 rounded-lg  active:scale-90 ">
@@ -75,7 +77,7 @@ const SellerProductComponent = ({ item: { id, image, name, price } }) => {
 						strokeWidth={1.5}
 						stroke="currentColor"
 						onClick={handleDetail}
-						className="   w-14 text-white px-4 py-2 ">
+						className="  w-8 sm:w-14 text-white px-4 py-2 ">
 						<path
 							strokeLinecap="round"
 							strokeLinejoin="round"
