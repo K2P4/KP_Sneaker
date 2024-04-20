@@ -91,8 +91,9 @@ const DashboardPage = () => {
 							]}>
 							<CarouselContent>
 								{data?.map((item) => (
-									<CarouselItem className="">
+									<CarouselItem key={item.id} className="">
 										<motion.div
+											key={item.id}
 											whileInView={{ opacity: 1 }}
 											initial={false}
 											whileHover={{
@@ -141,8 +142,8 @@ const DashboardPage = () => {
 									</CarouselItem>
 								))}
 							</CarouselContent>
-							<CarouselPrevious className="hover:bg-orange-400 hover:text-white duration-500" />
-							<CarouselNext className="hover:bg-orange-400 hover:text-white duration-500" />
+							<CarouselPrevious className="hover:bg-orange-400 hidden sm:flex hover:text-white duration-500" />
+							<CarouselNext className="hover:bg-orange-400 hidden sm:flex hover:text-white duration-500" />
 						</Carousel>
 					)}
 					<HomeCarouselComponent />

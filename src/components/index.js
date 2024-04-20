@@ -21,6 +21,7 @@ export { default as FavouriteComponent } from "./Favourite.component";
 export { default as EmptyFavComponent } from "./EmptyFav.component";
 export { default as Home2Component } from "./Home2.component";
 export { default as FavouriteList } from "./Favouritlist.component";
+export { default as Home3Componet } from "./Home3.component";
 
 export { default as SellerProduct } from "./SellerProduct.component";
 

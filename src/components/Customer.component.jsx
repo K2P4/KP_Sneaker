@@ -59,7 +59,9 @@ const CustomerComponent = () => {
 						Min Thu Khant
 					</h1>
 
-					<div className="flex sm:gap-3  gap-2 items-center  justify-center">
+					<div
+						key={stars}
+						className="flex sm:gap-3  gap-2 items-center  justify-center">
 						{stars.map((item) => (
 							<FaStar
 								className="text-yellow-500  shadow-lg   h-4 w-4 sm:h-5 sm:w-5"
@@ -73,8 +75,6 @@ const CustomerComponent = () => {
 						entire process seamless and enjoyable. I highly recommend their
 						services to anyone looking for a professional and stunning website.
 					</p>
-
-					
 				</motion.div>
 				<motion.div
 					whileInView={{ opacity: 1 }}

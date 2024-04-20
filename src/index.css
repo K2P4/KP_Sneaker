@@ -35,6 +35,11 @@ body {
 
 }
 
+.aboutFont{
+	font-size: 15px;
+
+}
+
 
 
 @layer components {

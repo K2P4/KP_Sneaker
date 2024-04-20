@@ -146,7 +146,7 @@ const ContactPage = () => {
 									className="text-orange-500 text-sm font-medium"
 								/>
 
-								<button className=" hidden  sm:flex align-middle  items-center gap-2  font-medium bg-orange-500 rounded-md mt-3 active:scale-95 text-white px-3 py-2">
+								<button className="  flex align-middle  items-center gap-2  font-medium bg-orange-500 rounded-md mt-3 active:scale-95 text-white px-3 py-2">
 									{isLoading ? (
 										<div className="flex items-center gap-2">
 											Sending
@@ -188,23 +188,23 @@ const ContactPage = () => {
 
 					<div className="flex  items-center gap-8 sm:gap-5 sm:mt-3 ">
 						<a href="https://www.facebook.com/profile.php?id=100077023871140&mibextid=LQQJ4d">
-							<FaFacebookF className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full w-6 h-6  sm:w-8 sm:h-8  p-1 text-white " />
+							<FaFacebookF className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full  w-8 h-8  sm:w-8 sm:h-8  p-1 text-white " />
 						</a>
 						<a href="https://www.instagram.com/vik83124?igsh=MWdtMmphc3hodjBucg%3D%3D&utm_source=qr">
-							<FaInstagram className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full w-6 h-6  sm:w-8 sm:h-8  p-1 text-white " />
+							<FaInstagram className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full  w-8 h-8  sm:w-8 sm:h-8  p-1 text-white " />
 						</a>
 						<a href="https://github.com/K2P4">
-							<FaGithub className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full w-6 h-6  sm:w-8 sm:h-8  p-1 text-white " />
+							<FaGithub className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full  w-8 h-8  sm:w-8 sm:h-8  p-1 text-white " />
 						</a>
 
 						<a href="https://github.com/K2P4">
-							<CiTwitter className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full w-6 h-6  sm:w-8 sm:h-8  p-1 text-white " />
+							<CiTwitter className=" bg-orange-500 hover:bg-orange-600 active:scale-95  rounded-full  w-8 h-8  sm:w-8 sm:h-8  p-1 text-white " />
 						</a>
 					</div>
 				</div>
 			</div>
 
-			<div className="  fixed bottom-2  left-[50%]  text-center ">
+			<div className="  fixed bottom-2  left-[45%] sm:left-[50%]  text-center ">
 				<a onClick={() => scrollToSection("home")}>
 					<FaArrowAltCircleUp className="text-2xl text-orange-600 text-center mx-auto" />
 				</a>
