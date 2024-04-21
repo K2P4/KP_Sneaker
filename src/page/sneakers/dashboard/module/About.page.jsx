@@ -70,7 +70,7 @@ const AboutPage = () => {
 					</h1>
 					<img
 						className="sm:w-[120px] mt-2 w-[100px] h-[100px] rounded-full sm:h-[120px] "
-						src="../../../../../public/Phyo Thura.jpg"
+						src="https://i.ibb.co/YQc8bQW/Phyo-Thura.jpg"
 						alt=""
 					/>
 
