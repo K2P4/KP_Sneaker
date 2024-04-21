@@ -39,7 +39,7 @@ const ServiceComponent = () => {
 						<h1 className="sm:text-xl  tracking-tighter sm:tracking-normal text-md font-bold">
 							Fast Free Shipping
 						</h1>
-						<p className="sm:text-sm  text-justify sm:text-pretty text-sm tracking-tighter  my-2 text-gray-800 group-hover:text-black   ">
+						<p className="sm:text-sm  text-justify sm:text-left text-sm tracking-tighter sm:tracking-tight  my-2 text-gray-800 group-hover:text-black   ">
 							Order over $75 ship for free. Or singn up for a sneaker account
 							and get free shopping on every order.{" "}
 						</p>

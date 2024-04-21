@@ -62,9 +62,6 @@ const NavComponent = () => {
 		setContactToggle(!contactToggle);
 	};
 
-
-	
-
 	const nav = useNavigate();
 
 	const [search, setSearch] = useState("");
@@ -114,8 +111,6 @@ const NavComponent = () => {
 		setDrawerToggle(!DrawerToggle);
 	};
 
-	
-
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 500) {
@@ -125,11 +120,11 @@ const NavComponent = () => {
 			}
 		};
 
-			const handleMouse = (e) => {
-				if (!MenuRef.current.contains(e.target)) {
-					setDrawerToggle(false);
-				}
-			};
+		const handleMouse = (e) => {
+			if (!MenuRef.current.contains(e.target)) {
+				setDrawerToggle(false);
+			}
+		};
 
 		window.addEventListener("scroll", handleScroll);
 		window.addEventListener("mousedown", handleMouse);
@@ -172,11 +167,10 @@ const NavComponent = () => {
 						</SheetContent>
 					)}
 
+					{/* cart toggle */}
 					<div
 						id="drawer-right-example"
-						className={`fixed top-0 right-0 z-40 h-screen ${
-							!cartToggle && "hidden"
-						} p-4 overflow-y-auto transition-transform translate-x-full bg-white   w-64 sm:w-96 duration-700 dark:bg-gray-800`}
+						className={`fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white   w-64 sm:w-96 duration-700 dark:bg-gray-800`}
 						tabIndex="-1"
 						aria-labelledby="drawer-right-label">
 						<div className="border-b-gray-300   border-b pb-3 ">
@@ -484,7 +478,7 @@ const NavComponent = () => {
 								{/*Add to cart*/}
 								<div className="relative flex items-center select-none gap-3 sm:gap-0 duration-500 ">
 									<button
-										onClick={() => setCartToggle(true)}
+										
 										type="button"
 										data-drawer-target="drawer-right-example"
 										data-drawer-show="drawer-right-example"
