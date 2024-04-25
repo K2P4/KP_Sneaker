@@ -54,9 +54,9 @@ const CollectionsPage = () => {
 			) : (
 				<div className="">
 					<div className="my-6 flex justify-between">
-						<div className="w-[35%] relative">
+						<div className="sm:w-[35%]  w-[45%] relative">
 							<Input
-								className=" focus:border-0   border-gray-700   px-14  rounded-full "
+								className=" focus:border-0   border-gray-700 px-10   sm:px-14  rounded-full "
 								type="email"
 								onChange={(e) => handleSearch(e.target.value)}
 								placeholder="Search"
