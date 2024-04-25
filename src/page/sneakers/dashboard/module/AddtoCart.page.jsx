@@ -260,7 +260,7 @@ const AddtoCartPage = () => {
 												Are you absolutely sure?
 											</AlertDialogTitle>
 											<AlertDialogDescription>
-												Which Method would you pay WavePay, Kpay ,Yoma Banking
+												You can Pay Order Now
 											</AlertDialogDescription>
 										</AlertDialogHeader>
 										<AlertDialogFooter>

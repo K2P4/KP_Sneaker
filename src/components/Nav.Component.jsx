@@ -170,7 +170,7 @@ const NavComponent = () => {
 					{/* cart toggle */}
 					<div
 						id="drawer-right-example"
-						className={`fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white   w-64 sm:w-96 duration-700 dark:bg-gray-800`}
+						className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white   w-64 sm:w-96 duration-700 dark:bg-gray-800"
 						tabIndex="-1"
 						aria-labelledby="drawer-right-label">
 						<div className="border-b-gray-300   border-b pb-3 ">
@@ -225,6 +225,9 @@ const NavComponent = () => {
 							isFixed &&
 							"fixed top-0 left-0   w-full    pe-6   ps-7  sm:pe-28 sm:px-28  mx-auto   bg-gray-50  duration-500        z-10 "
 						} `}>
+
+
+							
 						{/* toggle menu */}
 						{DrawerToggle && (
 							<div
@@ -478,7 +481,6 @@ const NavComponent = () => {
 								{/*Add to cart*/}
 								<div className="relative flex items-center select-none gap-3 sm:gap-0 duration-500 ">
 									<button
-										
 										type="button"
 										data-drawer-target="drawer-right-example"
 										data-drawer-show="drawer-right-example"
