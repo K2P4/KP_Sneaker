@@ -225,9 +225,6 @@ const NavComponent = () => {
 							isFixed &&
 							"fixed top-0 left-0   w-full    pe-6   ps-7  sm:pe-28 sm:px-28  mx-auto   bg-gray-50  duration-500        z-10 "
 						} `}>
-
-
-							
 						{/* toggle menu */}
 						{DrawerToggle && (
 							<div
@@ -259,7 +256,7 @@ const NavComponent = () => {
 								<div className="py-4 ">
 									<ul className="space-y-2 flex flex-col items-start gap-2 font-medium">
 										<li
-											onClick={() => handleSection("/")}
+											onClick={() => handleSection("collections")}
 											className="flex items-center w-full  select-none ">
 											<a className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 												<svg
