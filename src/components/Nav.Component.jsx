@@ -22,6 +22,8 @@ import { useLogoutMutation } from "../service/endpoints/AuthEndpoints";
 import FavouriteComponent from "./Favourite.component";
 import { FaTruckMedical } from "react-icons/fa6";
 import AddtoCartPage from "../page/sneakers/dashboard/module/AddtoCart.page";
+import TriggerCartComponent from "./TriggerCart.component";
+
 
 const NavComponent = () => {
 	const [RemoveFun, RemoveData] = useLogoutMutation();
@@ -168,57 +170,13 @@ const NavComponent = () => {
 					)}
 
 					{/* cart toggle */}
-					<div
+					{/* <div
 						id="drawer-right-example"
 						className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white   w-64 sm:w-96 duration-700 dark:bg-gray-800"
 						tabIndex="-1"
 						aria-labelledby="drawer-right-label">
-						<div className="border-b-gray-300   border-b pb-3 ">
-							<div className="flex gap-1   items-center  ">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="w-6 text-orange-500 h-6">
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-									/>
-								</svg>
-								<h2 className=" text-xs font-semibold sm:text-1xl sm:tracking-normal ">
-									{" "}
-									List Of Added Sneaker
-								</h2>
-							</div>
-						</div>
-
-						<button
-							type="button"
-							data-drawer-hide="drawer-right-example"
-							aria-controls="drawer-right-example"
-							className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 inline-flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
-							<svg
-								className="w-3 h-3"
-								aria-hidden="true"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 14 14">
-								<path
-									stroke="currentColor"
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth="2"
-									d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-								/>
-							</svg>
-							<span className="sr-only">Close menu</span>
-						</button>
-
-						<AddtoCartPage />
-					</div>
+						
+					</div> */}
 
 					<div
 						className={` border-b  border-b-gray-300  py-4 sm:pt-4 sm:pb-0  flex justify-between items-center   ${
@@ -476,13 +434,10 @@ const NavComponent = () => {
 								</SheetTrigger>
 
 								{/*Add to cart*/}
-								<div className="relative flex items-center select-none gap-3 sm:gap-0 duration-500 ">
+								<TriggerCartComponent/>
+								{/* <div className="relative flex items-center select-none gap-3 sm:gap-0 duration-500 ">
 									<button
 										type="button"
-										data-drawer-target="drawer-right-example"
-										data-drawer-show="drawer-right-example"
-										data-drawer-placement="right"
-										aria-controls="drawer-right-example"
 										className="">
 										<svg
 											xmlns="http://www.w3.org/2000/svg"
@@ -501,7 +456,7 @@ const NavComponent = () => {
 									<span className="w-4 absolute top-0 -end-1  h-4  select-none  text-center mx-auto text-xs font-semibold text-white bg-orange-500 rounded-full ">
 										{cart.length}
 									</span>
-								</div>
+								</div> */}
 
 								{/*Menu */}
 								<div className="flex sm:hidden z-10   text-center">

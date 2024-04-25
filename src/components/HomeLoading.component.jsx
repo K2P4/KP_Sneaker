@@ -13,7 +13,7 @@ const HomeLoadingComponent = () => {
 					<div className="h-4 bg-gray-300 rounded-full dark:bg-gray-700  w-[350px] mb-2.5"></div>
 				</div>
 
-				<div className="flex  items-center space-x-4">
+				<div className="flex flex-col w-full  sm:flex-row items-center space-y-10 space-x-0 sm:space-y-0 sm:space-x-4">
 					<div className="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
 						<svg
 							className="w-10 h-10 text-gray-200 dark:text-gray-600"
