@@ -170,8 +170,8 @@ const NavComponent = () => {
 					{/* cart toggle */}
 					<div
 						id="drawer-right-example"
-						className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 dark:bg-gray-800"
-						tabindex="-1"
+						className="fixed top-0 right-0 z-40 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white   w-64 sm:w-96 duration-700 dark:bg-gray-800"
+						tabIndex="-1"
 						aria-labelledby="drawer-right-label">
 						<div className="border-b-gray-300   border-b pb-3 ">
 							<div className="flex gap-1   items-center  ">
